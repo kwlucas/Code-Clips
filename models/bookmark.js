@@ -12,14 +12,14 @@ Bookmark.init(
             primaryKey: true,
             autoIncrement: true
         },
-        user: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        post: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        }
+        // user: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        // },
+        // post: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        // }
     },
     {
         sequelize,
