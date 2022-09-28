@@ -1,0 +1,28 @@
+{
+  "name": "code-clips",
+  "version": "1.0.0",
+  "description": "Users can post and save code snippets and references.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kwlucas/Code-Clips.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kwlucas/Code-Clips/issues"
+  },
+  "homepage": "https://github.com/kwlucas/Code-Clips#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.23.2"
+  }
+}
