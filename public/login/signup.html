@@ -9,9 +9,14 @@
     <div id="bg"></div>
 
     <form>
-      <!-- username field  -->
+      <!-- name field  -->
+      <div class="form-field" id="form-field-name">
+        <input type="text" placeholder="Name" required />
+      </div>
+
+      <!-- user field  -->
       <div class="form-field" id="form-field-user">
-        <input type="text" id="" placeholder="Username" required />
+        <input type="text" id="username" placeholder="Email" required />
       </div>
 
       <!-- password field  -->
@@ -19,18 +24,9 @@
         <input type="password" placeholder="Password" required />
       </div>
 
-      <!-- button field for signup  -->
+      <!-- button for signup  -->
       <div class="form-field" id="form-field-btn">
-        <button
-          onclick="location.href='./signup.html'"
-          class="btn2"
-          id="createAccount"
-          type="submit"
-        >
-          Signup
-        </button>
-        <!-- button for login  -->
-        <button class="btn" id="submit" type="submit">Login</button>
+        <button class="btn2" id="createAccount" type="submit">Signup</button>
       </div>
     </form>
     <script src="./login.js"></script>
