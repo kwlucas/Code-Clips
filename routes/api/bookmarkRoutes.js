@@ -16,11 +16,12 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.get('/', async (req, res) => {
+//get all the bookmarks belonging to specificed user
+router.get('/:user_id', async (req, res) => {
     try {
         const bookmarkData = await Bookmark.findAll({
           where: {
-            user_id: req.body.user_id
+            user_id: req.params.user_id
           },
           attributes: {
             //Fields which won't be included in response data
@@ -33,6 +34,7 @@ router.get('/', async (req, res) => {
     }
 });
 
+//Delete the bookmark with specified id
 router.delete('/:id', async (req, res) => {
     try {
       const bookmarkData = await Bookmark.destroy({
