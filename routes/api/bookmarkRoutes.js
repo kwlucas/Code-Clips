@@ -44,7 +44,12 @@ router.get('/u/:user_id', async (req, res) => {
         exclude: ['id', 'user_id']
       }
     });
-    res.status(200).json(bookmarkData);
+    if (!bookmarkData) {
+      res.status(404).json({ message: 'No bookmark with these parameters!' });
+
+    } else {
+      res.status(200).json(bookmarkData);
+    }
   } catch (err) {
     res.status(400).json(err);
   }
