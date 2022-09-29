@@ -17,6 +17,21 @@ router.post('/', async (req, res) => {
   }
 });
 
+//get the bookmark with the specified id
+router.get('/:id', async (req, res) => {
+  try {
+    const bookmarkData = await Bookmark.findByPk(req.params.id);
+    if (!bookmarkData) {
+      res.status(404).json({ message: 'No bookmark with this id!' });
+
+    } else {
+      res.status(200).json(bookmarkData);
+    }
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 //get all the bookmarks belonging to specificed user
 router.get('/u/:user_id', async (req, res) => {
   try {
