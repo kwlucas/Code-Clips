@@ -19,6 +19,6 @@ const userData = [
     },
 ];
 
-const seedUsers = () => User.bulkCreate(userData);
+const seedUsers = function() {userData.forEach(data => User.create(data))};
 
 module.exports = seedUsers;
