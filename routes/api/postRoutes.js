@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Sequelize } = require('sequelize');
+const sequelize = require('../../config/connection');
 const { Post, User, Bookmark } = require('../../models');
 
 
@@ -19,18 +20,11 @@ router.post('/', async (req, res) => {
 
 //SELECT *  FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id;
 //SELECT post.id, post.user_id, post.title, COUNT(bookmark.id) AS bookmark_count FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id GROUP BY post.id;
+//SELECT post.*, COUNT(bookmark.id) AS bookmark_count FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id GROUP BY post.id;
 
 router.get('/', async (req, res) => {
     try {
-        const postData = await Post.findAll({
-            include: [
-                {model: User, required: false},
-                //{model: User, through: {},required: false}
-            ],
-            attributes: {
-                //include: [[Sequelize.fn('COUNT', Sequelize.col('bookmar.user_id')), 'bookmark_count']]
-            },
-        });
+        const postData = await sequelize.query('SELECT post.*, COUNT(bookmark.id) AS bookmark_count FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id GROUP BY post.id');
         if (!postData) {
             res.status(404).json({ message: 'No Post with these parameters!' });
 
