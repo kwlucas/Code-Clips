@@ -17,8 +17,8 @@ router.post('/', async (req, res) => {
     }
 });
 
-//SELECT * FROM user LEFT OUTER JOIN bookmark ON user.id = bookmark.user_id;
-//SELECT *,  FROM user LEFT OUTER JOIN bookmark ON user.id = bookmark.user_id;
+//SELECT *  FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id;
+//SELECT post.id, post.user_id, post.title, COUNT(bookmark.id) AS bookmark_count FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id GROUP BY post.id;
 
 router.get('/', async (req, res) => {
     try {
