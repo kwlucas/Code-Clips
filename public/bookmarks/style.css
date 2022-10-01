@@ -1,0 +1,282 @@
+/* variables  */
+:root {
+    --black: 
+  rgba(0, 0, 0, 1);
+    --alto: 
+  rgba(217, 217, 217, 1);
+    --white-2: 
+  rgba(255, 255, 255, 0.161);
+    --white: 
+  rgba(255, 255, 255, 1);
+  
+    --font-size-m: 32px;
+    --font-size-l: 32px;
+    --font-size-xl: 100px;
+  
+    --font-family-inter: "Inter";
+  }
+  
+  
+  
+  .inter-bold-white-32px {
+    color: var(--white);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m);
+    font-weight: 700;
+    font-style: normal;
+  }
+  .inter-bold-black-32px {
+    color: var(--black);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m);
+    font-weight: 700;
+    font-style: normal;
+  }
+  .inter-medium-black-32px {
+    color: var(--black);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m);
+    font-weight: 500;
+    font-style: normal;
+  }
+  .inter-bold-white-100px {
+    color: var(--white);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    font-style: normal;
+  }
+  .inter-bold-black-96px {
+    color: var(--black);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-l);
+    font-style: normal;
+    padding-right: 15px;
+    padding-left: 15px;
+
+  }
+
+  /* styling  */
+  @import url("https://fonts.googleapis.com/css?family=Inter:700,500");
+
+.desktop-1 {
+  background-color: 
+#404040b9;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  padding: auto
+}
+
+.hidden,
+.hidden * {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.button {
+  justify-content: flex-end;
+  display: flex;
+  height: 50px;
+  min-width: 50px;
+  margin-right: 20px;
+  
+}
+
+.overlap-group5 {
+  align-items: flex-start;
+  background-color: var(--alto);
+  border-radius: 80px;
+  display: flex;
+}
+
+.text-1 {
+  height: 66px;
+  letter-spacing: 0;
+  text-align: center;
+  width: 66px;
+}
+
+.valign-text-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.most-bookmarked {
+  align-self: flex-start;
+  letter-spacing: 0;
+  margin-left: 62px;
+  margin-top: 34px;
+  min-height: 47px;
+  width: 302px;
+  z-index: 4;
+}
+
+.flex-row {
+  align-items: flex-end;
+  display: flex;
+  min-width: 1384px;
+  z-index: 5;
+}
+
+.overlap-group4 {
+  align-items: flex-start;
+  background-color: var(--alto);
+  border-radius: 15px;
+  display: flex;
+  height: 67px;
+  margin-bottom: 6px;
+  margin-left: 696px;
+  min-width: 142px;
+  padding: 13px 12px;
+}
+
+.log-out {
+  height: 39px;
+  letter-spacing: 0;
+  text-align: center;
+  width: 118px;
+}
+
+.title-2 {
+  height: 111px;
+  letter-spacing: 0;
+  width: 544px;
+}
+
+.row-2 {
+  align-items: flex-end;
+  display: flex;
+  margin-right: 26px;
+  margin-top: 26px;
+  min-width: 1325px;
+  padding: 0px 0;
+  z-index: 1;
+}
+
+.vector-1-1 {
+  align-self: center;
+  height: 78px;
+  margin-bottom: 0;
+  width: 39px;
+}
+
+.overlap-group2 {
+  align-items: flex-start;
+  background-color: var(--alto);
+  border-radius: 11px;
+  display: flex;
+  height: 232px;
+  justify-content: flex-end;
+  margin-left: 37px;
+  min-width: 268px;
+  padding: 0 15px;
+}
+
+.title-1 {
+  letter-spacing: 0;
+  margin-top: 20px;
+  min-height: 35px;
+  width: 150px;
+}
+
+.rectangle-3-1 {
+  height: 49px;
+  margin-left: 37px;
+  width: 37px;
+}
+
+.vector-2-1 {
+  align-self: center;
+  height: 78px;
+  margin-bottom: 0;
+  margin-left: 35px;
+  width: 39px;
+}
+
+.overlap-group-1 {
+align-items: flex-start;
+  background-color: var(--alto);
+  border-radius: 11px;
+  display: flex;
+  height: 232px;
+  justify-content: flex-end;
+  margin-left: 33px;
+  min-width: 268px;
+  padding: 0 15px;
+}
+
+.overlap-group3 {
+  align-items: flex-start;
+  background-color: var(--alto);
+  border-radius: 11px;
+  display: flex;
+  height: 232px;
+  justify-content: flex-end;
+  margin-left: 33px;
+  min-width: 268px;
+  padding: 0 15px;
+}
+
+.row-1 {
+  align-items: flex-end;
+  display: flex;
+  margin-right: 26px;
+  margin-top: 22px;
+  min-width: 1325px;
+  z-index: 3;
+}
+
+.overlap-group {
+  height: 235px;
+  margin-bottom: 0;
+  margin-left: 35px;
+  position: relative;
+  width: 268px;
+  z-index: 1;
+}
+
+.rectangle-3 {
+  height: 49px;
+  left: 216px;
+  position: absolute;
+  top: 0;
+  width: 37px;
+}
+
+.rectangle-1 {
+  background-color: var(--alto);
+  border: 1px none;
+  border-radius: 11px;
+  height: 232px;
+  left: 0;
+  position: absolute;
+  top: 3px;
+  width: 268px;
+}
+
+.vector-2 {
+  align-self: center;
+  height: 78px;
+  margin-left: 35px;
+  margin-top: 3px;
+  width: 39px;
+}
+
+.vector-1 {
+  align-self: center;
+  height: 78px;
+  margin-top: 3px;
+  width: 39px;
+}
+
+.your-bookmarks {
+  align-self: flex-start;
+  letter-spacing: 0;
+  margin-left: 77px;
+  margin-top: 55px;
+  min-height: 47px;
+  width: 302px;
+  z-index: 2;
+}
