@@ -30,7 +30,13 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
     try {
-        const postData = await sequelize.query('SELECT post.*, COUNT(bookmark.id) AS bookmark_count FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id GROUP BY post.id');
+        let postData;
+        if(req.query.sortBy == 'bookmarks'){
+            postData = await sequelize.query('SELECT post.*, COUNT(bookmark.id) AS bookmark_count FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id GROUP BY post.id ORDER BY COUNT(bookmark.id) DESC');
+        } else {
+            postData = await sequelize.query('SELECT post.*, COUNT(bookmark.id) AS bookmark_count FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id GROUP BY post.id');
+        }
+        
         if (!postData) {
             res.status(404).json({ message: 'No Post with these parameters!' });
 
