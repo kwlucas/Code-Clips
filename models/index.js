@@ -12,13 +12,21 @@ Post.belongsTo (User, {
     foreignKey: 'user_id'
 });
 
-Bookmark.belongsTo (User, {
-    foreignKey: 'post_id'
+User.belongsToMany(Post, {
+    through: Bookmark
 });
-User.hasMany(Bookmark, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE'
+
+Post.belongsToMany(User, {
+    through: Bookmark
 });
+
+// Bookmark.belongsTo (User, {
+//     foreignKey: 'post_id'
+// });
+// User.hasMany(Bookmark, {
+//     foreignKey: 'user_id',
+//     onDelete: 'CASCADE'
+// });
 //belongs to many need through 
 // Post.belongsToMany(Tag, {
     
