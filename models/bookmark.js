@@ -1,4 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
+const User = require('./user');
+const Post = require('./post');
 const sequelize = require('../config/connection')//require connection file
 
 class Bookmark extends Model { }
@@ -12,14 +14,22 @@ Bookmark.init(
             primaryKey: true,
             autoIncrement: true
         },
-        // user: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        // },
-        // post: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        // }
+        user_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: User,
+                key: 'id'
+            }
+        },
+        post_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: Post,
+                key: 'id'
+            }
+        }
     },
     {
         sequelize,
