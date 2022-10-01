@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Sequelize } = require('sequelize');
 const sequelize = require('../../config/connection');
-const { Post, User, Bookmark } = require('../../models');
+const { Post } = require('../../models');
 
 
 router.post('/', async (req, res) => {
@@ -36,7 +36,7 @@ router.get('/', async (req, res) => {
         } else {
             postData = await sequelize.query('SELECT post.*, COUNT(bookmark.id) AS bookmark_count FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id GROUP BY post.id');
         }
-        
+
         if (!postData) {
             res.status(404).json({ message: 'No Post with these parameters!' });
 
