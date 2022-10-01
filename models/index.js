@@ -13,11 +13,13 @@ Post.belongsTo (User, {
 });
 
 User.belongsToMany(Post, {
-    through: Bookmark
+    through: Bookmark,
+    foreignKey: 'user_id'
 });
 
 Post.belongsToMany(User, {
-    through: Bookmark
+    through: Bookmark,
+    foreignKey: 'post_id'
 });
 
 // Bookmark.belongsTo (User, {
