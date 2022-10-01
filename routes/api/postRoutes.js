@@ -19,8 +19,14 @@ router.post('/', async (req, res) => {
 });
 
 //SELECT *  FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id;
+//For use in console to get post with bookmark count
 //SELECT post.id, post.user_id, post.title, COUNT(bookmark.id) AS bookmark_count FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id GROUP BY post.id;
+//For use in console to get posts with bookmark count in order of bookmark count
+//SELECT post.id, post.user_id, post.title, COUNT(bookmark.id) AS bookmark_count FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id GROUP BY post.id ORDER BY COUNT(bookmark.id) DESC;
+//raw query to get all posts with a count of their bookmark count
 //SELECT post.*, COUNT(bookmark.id) AS bookmark_count FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id GROUP BY post.id;
+//raw query to get all posts with a count of their bookmark count in order of bookmark count
+//SELECT post.*, COUNT(bookmark.id) AS bookmark_count FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id GROUP BY post.id ORDER BY COUNT(bookmark.id) DESC;
 
 router.get('/', async (req, res) => {
     try {
