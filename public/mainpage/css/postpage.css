@@ -1,0 +1,38 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+background-color: rgb(170, 170, 170);
+}
+
+body{
+    margin: 32px;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 2px;
+}
+
+.new_note_btn{
+     background-color: #48abe0;
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
+    border: none;
+    color: aliceblue;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0 2px 4px darkslategray;
+    transition: all 0.2s ease;
+    cursor: pointer;   
+}
+
+.new_note_btn:hover{
+    background-color: rgb(22, 0, 221);
+   
+}
