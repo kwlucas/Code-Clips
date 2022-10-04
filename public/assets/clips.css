@@ -126,6 +126,14 @@ button:hover, .button:hover{
     background-color: var(--btn-hover-color);
 }
 
+.arrow-btn svg{
+    fill: var(--arrow-btn);
+}
+
+.arrow-btn~.arrow-btn svg{
+    transform: rotate(180deg);
+}
+
 #log-btn{
     --btn-color: var(--log-btn);
     --btn-hover-color: var(--log-btn-hover);
