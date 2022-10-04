@@ -16,6 +16,10 @@ html {
     box-sizing: border-box;
     overflow-x: hidden;
     overflow-y: auto;
+
+    --button-color: var(--white);
+    --button-hover-color: var(--off-white);
+    --button-click-color: var(--grey-2);
 }
 
 body {
@@ -57,7 +61,7 @@ button, .button {
     border-width: 1px;
     text-decoration: none;
     padding: 1em;
-    background-color: white;
+    background-color: var(--button-color);
     border-radius: 12px;
 }
 
