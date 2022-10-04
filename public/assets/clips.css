@@ -17,20 +17,20 @@ html {
     overflow-x: hidden;
     overflow-y: auto;
 
-    --button-color: var(--white);
-    --button-hover-color: var(--off-white);
-    --button-click-color: var(--grey-2);
+    --btn-color: var(--white);
+    --btn-hover-color: var(--off-white);
+    --btn-click-color: var(--grey-2);
 }
 
 body {
     --main-bg: var(--grey);
     --bookmark-false: var(--grey-2);
     --bookmark-true: var(--dark-red);
-    --log-button: var(--white);
-    --log-button-text: var(--black);
-    --log-button-hover: var(--off-white);
-    --arrow-buttons: var(--off-white);
-    --plus-button: var(--off-white);
+    --log-btn: var(--white);
+    --log-btn-text: var(--black);
+    --log-btn-hover: var(--off-white);
+    --arrow-btn: var(--off-white);
+    --plus-btn: var(--off-white);
     --post-bg: var(--off-white);
 
     --header-text: var(--white);
@@ -63,24 +63,24 @@ button, .button {
     border-style: outset;
     border-width: 1px;
     text-decoration: none;
-    padding: 1em;
-    background-color: var(--button-color);
+    padding: 1rem;
+    background-color: var(--btn-color);
     border-radius: 12px;
     transition: background-color 0.2s ease;
 }
 
 button:active, .button:active{
     border-style: inset;
-    background-color: var(--button-click-color);
+    background-color: var(--btn-click-color);
 }
 
 button:hover, .button:hover{
-    background-color: var(--button-hover-color);
+    background-color: var(--btn-hover-color);
 }
 
 #log-btn{
-    --button-color: var(--log-button);
-    --button-hover-color: var(--log-button-hover);
-    --button-click-color: var(--button-hover-color);
-    color: var(--log-button-text);
+    --btn-color: var(--log-btn);
+    --btn-hover-color: var(--log-btn-hover);
+    --btn-click-color: var(--btn-hover-color);
+    color: var(--log-btn-text);
 }
