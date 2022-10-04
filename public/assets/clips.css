@@ -63,8 +63,14 @@ button, .button {
     padding: 1em;
     background-color: var(--button-color);
     border-radius: 12px;
+    transition: background-color 0.2s ease;
 }
 
 button:active, .button:active{
     border-style: inset;
+    background-color: var(--button-click-color);
+}
+
+button:hover, .button:hover{
+    background-color: var(--button-hover-color);
 }
