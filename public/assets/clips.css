@@ -9,6 +9,9 @@
     --dark-grey: #2e2e2e;
 
     --dark-red: #aa4848;
+    --cyan: #00FFFF;
+    --capri: #00BFFF;
+    --azure: #007FFF;
 }
 
 @import url("https://fonts.googleapis.com/css?family=Inter:700,500");
@@ -104,7 +107,9 @@ body {
     --log-btn-text: var(--black);
     --log-btn-hover: var(--off-white);
     --arrow-btn: var(--light-grey);
-    --plus-btn: var(--off-white);
+    --plus-btn: var(--azure);
+    --plus-btn-hover: var(--capri);
+    --plus-btn-text: var(--white);
     --post-bg: var(--off-white);
 
     --header-text: var(--white);
@@ -278,9 +283,39 @@ button:hover, .button:hover{
     transform: rotate(180deg);
 }
 
+.fixed {
+    position: fixed;
+    z-index: 10;
+}
+
+.fixed.btm-right {
+    right: 1.5rem;
+    bottom: 1.5rem;
+}
+
+.circle {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+}
+
 #log-btn{
     --btn-color: var(--log-btn);
     --btn-hover-color: var(--log-btn-hover);
     --btn-click-color: var(--btn-hover-color);
     color: var(--log-btn-text);
+}
+
+#new-post-btn{
+    --btn-color: var(--plus-btn);
+    --btn-hover-color: var(--plus-btn-hover);
+    --btn-click-color: var(--btn-hover-color);
+    color: var(--plus-btn-text);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 2rem;
+    font-weight: bold;
 }
