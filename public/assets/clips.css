@@ -3,6 +3,7 @@
     --black:rgba(0, 0, 0, 1);
     --white: rgba(255, 255, 255, 1);
     --off-white:rgba(217, 217, 217, 1);
+    --light-grey: #a7a7a7;
     --grey: #424242;
     --grey-2: #6b6b6b;
 
@@ -75,7 +76,7 @@ body {
     --log-btn: var(--white);
     --log-btn-text: var(--black);
     --log-btn-hover: var(--off-white);
-    --arrow-btn: var(--off-white);
+    --arrow-btn: var(--light-grey);
     --plus-btn: var(--off-white);
     --post-bg: var(--off-white);
 
@@ -126,6 +127,13 @@ button:hover, .button:hover{
     background-color: var(--btn-hover-color);
 }
 
+.row-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+}
+
 .post {
     width: 270px;
     height: 235px;
@@ -134,12 +142,6 @@ button:hover, .button:hover{
 
     background-color: var(--post-bg);
     color: var(--post-text);
-}
-
-.row-container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
 }
 
 .scroll-box {
@@ -151,11 +153,13 @@ button:hover, .button:hover{
     transition: filter 0.2s ease;
     border-radius: 12px;
 
-    background-color: var(--main-bg);
+    height: 100%;
+
+    /* background-color: var(--main-bg); */
 }
 
 .arrow-btn:hover {
-    filter: brightness(125%);
+    filter: brightness(150%);
 }
 
 .arrow-btn svg{
