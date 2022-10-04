@@ -4,9 +4,10 @@ const { User, Post, Bookmark } = require('../models');
 //dashboard/home page
 router.get('/', async (req, res) => {
     try {
-        
+        //render dashboard/homepage
+        res.render('');
     } catch (err) {
-        
+        res.status(500).json(err);
     }
 });
 
