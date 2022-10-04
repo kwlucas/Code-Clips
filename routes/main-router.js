@@ -21,11 +21,22 @@ router.get('/post/:id', async (req, res) => {
 
 //login page
 router.get('/login', (req, res) => {
+    //If already signed in redirect to homepage
+    // if (req.session.loggedIn) {
+    //     res.redirect('/');
+    //     return;
+    //   }
+    
     
 });
 
 //sign up page
 router.get('/signup', (req, res) => {
+    //If already signed in redirect to homepage
+    // if (req.session.loggedIn) {
+    //     res.redirect('/');
+    //     return;
+    //   }
     
 });
 
