@@ -27,6 +27,7 @@ body {
     --bookmark-false: var(--grey-2);
     --bookmark-true: var(--dark-red);
     --log-button: var(--white);
+    --log-button-text: var(--black);
     --log-button-hover: var(--off-white);
     --arrow-buttons: var(--off-white);
     --plus-button: var(--off-white);
@@ -48,7 +49,7 @@ header a {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    color: var();
+    color: var(--white);
 }
 
 .no-border {
@@ -57,6 +58,7 @@ header a {
 
 button, .button {
     display: inline-block;
+    cursor: pointer;
     text-align: center;
     border-style: outset;
     border-width: 1px;
@@ -80,4 +82,5 @@ button:hover, .button:hover{
     --button-color: var(--log-button);
     --button-hover-color: var(--log-button-hover);
     --button-click-color: var(--button-hover-color);
+    color: var(--log-button-text);
 }
