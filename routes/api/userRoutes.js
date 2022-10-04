@@ -63,9 +63,15 @@ router.post('/login', async (req, res) => {
     if (req.session.loggedIn) {
       req.session.destroy(() => {
         res.status(204).end();
+        
       });
     } else {
       res.status(404).end();
+    }
+    req.session.save(() => {
+      req.session.userId = user.id;
+      req.session.username = user.username;
+      req.session.loggedIn = true;
     }
   });
 
