@@ -11,6 +11,10 @@
 
 @import url("https://fonts.googleapis.com/css?family=Inter:700,500");
 
+* {
+    box-sizing: inherit;
+}
+
 html {
     font-family: 'Inter', 'Helvetica', 'Arial', 'Verdana', 'sans-serif';
     box-sizing: border-box;
@@ -20,6 +24,11 @@ html {
     --btn-color: var(--white);
     --btn-hover-color: var(--off-white);
     --btn-click-color: var(--grey-2);
+}
+
+/* mobile size */
+html{
+    font-size: 16px;
 }
 
 body {
