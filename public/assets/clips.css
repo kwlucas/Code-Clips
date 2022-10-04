@@ -1,4 +1,17 @@
-header a{
+/* variables  */
+:root {
+    --black:rgba(0, 0, 0, 1);
+    --white: rgba(255, 255, 255, 1);
+    --off-white:rgba(217, 217, 217, 1);
+    --grey: #424242;
+    --grey-2: #6b6b6b;
+
+    --dark-red: #aa4848;
+
+    --inter: "Inter";
+}
+
+header a {
     text-decoration: none;
 }
 
