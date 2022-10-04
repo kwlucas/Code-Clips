@@ -9,7 +9,13 @@ router.post('/', async (req, res) => {
                 password: req.body.password,
             });
             //session save
+            req.session.save(() => {
+              req.session.userId = userData.id;
+              req.session.username = userData.username;
+              req.session.loggedIn = true;
+           
             res.json(userData);
+          });
         } else {
             res.status(400).send({ message: 'Invalid user parameters!' });
         }
