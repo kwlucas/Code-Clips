@@ -46,8 +46,21 @@ header a {
     color: var();
 }
 
-.button {
+.no-border {
+    border: none !important;
+}
+
+button, .button {
+    display: inline-block;
+    text-align: center;
+    border-style: outset;
+    border-width: 1px;
+    text-decoration: none;
     padding: 1em;
     background-color: white;
     border-radius: 12px;
+}
+
+button:active, .button:active{
+    border-style: inset;
 }
