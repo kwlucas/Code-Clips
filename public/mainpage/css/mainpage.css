@@ -49,7 +49,7 @@ header{
    height: 35px;
    margin: 0 16px 16px 0;
    background-color: rgb(197, 195, 195);
-   /* box-sizing: border-box; */
+   box-sizing: border-box;
    padding: 16px;
    border: none;
    border-radius: 10px;
@@ -60,4 +60,18 @@ header{
    display: inline-flex ;
    flex-wrap: wrap;
    }
-   
+/* 
+   #save-notes-btn{
+    background-color: #48abe0;
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
+    border: none;
+    color: aliceblue;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0 2px 4px darkslategray;
+    transition: all 0.2s ease;
+    cursor: pointer;  
+   }
+    */
