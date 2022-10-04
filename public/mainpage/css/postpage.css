@@ -48,7 +48,7 @@ header{
    width: 180px;
    height: 35px;
    margin: 0 16px 16px 0;
-   background-color: #666;
+   background-color: rgb(197, 195, 195);
    /* box-sizing: border-box; */
    padding: 16px;
    border: none;
