@@ -2,7 +2,10 @@
 margin: 0;
 padding: 0;
 box-sizing: border-box;
-background-color: rgb(170, 170, 170);
+background-color: rgba(255, 254, 254, 0.815);
+}
+h1{
+    font-size: 60px;
 }
 
 body{
@@ -16,6 +19,8 @@ header{
     align-items: center;
     padding-bottom: 16px;
     border-bottom: 2px;
+    width:100%;
+    border-bottom: solid 1px #666;
 }
 
 .new_note_btn{
@@ -36,3 +41,23 @@ header{
     background-color: rgb(22, 0, 221);
    
 }
+#note_area{
+    display: flex;
+}
+.note-style{
+   width: 180px;
+   height: 35px;
+   margin: 0 16px 16px 0;
+   background-color: #666;
+   /* box-sizing: border-box; */
+   padding: 16px;
+   border: none;
+   border-radius: 10px;
+   box-shadow: 0 0 7px rgba(102, 95, 95, 0.15);
+   font-size: 16px;
+   resize: none;
+   height: 180px;
+   display: inline-flex ;
+   flex-wrap: wrap;
+   }
+   
