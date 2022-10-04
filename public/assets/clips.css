@@ -137,11 +137,28 @@ button:hover, .button:hover{
 .post {
     width: 270px;
     height: 235px;
+    position: relative;
 
     border-radius: 12px;
 
     background-color: var(--post-bg);
     color: var(--post-text);
+}
+
+.bookmark-btn {
+    width: min-content;
+    position: absolute;
+    top: -3px;
+    right: 15px;
+
+    cursor: pointer;
+}
+
+.bookmark-btn.saved svg {
+    fill: var(--bookmark-true);
+}
+.bookmark-btn:not(.saved) svg {
+    fill: var(--bookmark-false);
 }
 
 .scroll-box {
