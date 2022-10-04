@@ -311,6 +311,25 @@ button:hover, .button:hover{
     border-radius: 50%;
 }
 
+dialog[open] {
+    width: 101%;
+    height: 101%;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 1;
+    border: none;
+    background-color: rgba(66,66,66,0.25);
+}
+
+dialog[open]>div:first-child{
+    width: 75%;
+    min-height: 25%;
+    position: absolute;
+    z-index: 2;
+    margin: 1.5rem;
+}
+
 #log-btn{
     --btn-color: var(--log-btn);
     --btn-hover-color: var(--log-btn-hover);
@@ -330,4 +349,11 @@ button:hover, .button:hover{
 
     font-size: 2rem;
     font-weight: bold;
+}
+
+#view-post{
+    background-color: var(--grey-2);
+    border-radius: 12px;
+    border: 2px solid var(--black);
+    padding: 0.33rem;
 }
