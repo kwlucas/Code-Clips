@@ -31,6 +31,34 @@ html{
     font-size: 16px;
 }
 
+@media only screen and (min-width: 768px) {
+    html{
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    html {
+        font-size: 24px;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    html {
+        font-size: 30px;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     --main-bg: var(--grey);
     --bookmark-false: var(--grey-2);
@@ -72,7 +100,7 @@ button, .button {
     border-style: outset;
     border-width: 1px;
     text-decoration: none;
-    padding: 1rem;
+    padding: 0.5rem;
     background-color: var(--btn-color);
     border-radius: 12px;
     transition: background-color 0.2s ease;
