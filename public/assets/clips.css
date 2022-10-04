@@ -11,6 +11,8 @@
     --inter: "Inter";
 }
 
+@import url("https://fonts.googleapis.com/css?family=Inter:700,500");
+
 header a {
     text-decoration: none;
 }
