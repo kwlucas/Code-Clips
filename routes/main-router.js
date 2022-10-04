@@ -13,9 +13,18 @@ router.get('/', async (req, res) => {
 //view post page
 router.get('/post/:id', async (req, res) => {
     try {
-        
+        const postData = await Post.findByPk(req.params.id);
+
+        if(postData){
+            //Render post display page with the post data
+            res.render('', { postData });
+        } else {
+            //render 404 page
+            res.render('');
+        }
+
     } catch (err) {
-        
+        res.status(500).json(err);
     }
 });
 
@@ -26,8 +35,6 @@ router.get('/login', (req, res) => {
     //     res.redirect('/');
     //     return;
     //   }
-    
-    
 });
 
 //sign up page
@@ -37,7 +44,6 @@ router.get('/signup', (req, res) => {
     //     res.redirect('/');
     //     return;
     //   }
-    
 });
 
 module.exports = router;
