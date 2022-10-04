@@ -1,6 +1,12 @@
  const addBtn = document.querySelector('.new_note_btn');
 const divPlacement = document.get
-addBtn.addEventListener('click', addNew);
+addBtn.addEventListener('click', openDialogue);
+
+function openDialogue(event){
+    event.target.classList.toggle('rotate');
+    const target = document.querySelector('#new-post');
+    target.toggleAttribute('open');
+}
 
 function addNew(postTitle){
     const newTextArea = document.createElement('textarea');

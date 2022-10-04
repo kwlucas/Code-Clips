@@ -33,17 +33,21 @@ header{
     border-radius: 50%;
     padding: 5px;
     box-shadow: 0 2px 4px darkslategray;
-    transition: all 0.2s ease;
+    transition: all 0.5s ease;
     cursor: pointer;   
+    text-align: center;
+    text-decoration: none;
+}
+.rotate{
+    transform: rotate(135deg);
+    background-color: red;
 }
 
 .new_note_btn:hover{
     background-color: rgb(22, 0, 221);
    
 }
-#note_area{
-    display: flex;
-}
+
 .note-style{
    width: 180px;
    height: 35px;
@@ -75,3 +79,29 @@ header{
     cursor: pointer;  
    }
     */
+
+    dialog{
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        min-height: 45vh;
+        min-width: 50vw;
+        padding: 3.5rem;
+    }
+    .dialog-header{
+        justify-content: right;
+        display: flex;
+    }
+    dialog textarea{
+        width: 100%;
+        min-height: 40px;
+
+    }
+    dialog div{
+        margin-bottom: 1rem;
+    }
+
+    .dialog-footer{
+        justify-content: right;
+        display: flex;
+    }
