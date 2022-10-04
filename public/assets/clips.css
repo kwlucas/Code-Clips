@@ -126,6 +126,16 @@ button:hover, .button:hover{
     background-color: var(--btn-hover-color);
 }
 
+.row-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.scroll-box {
+    flex: 1 1 0;
+}
+
 .arrow-btn svg{
     fill: var(--arrow-btn);
 }
