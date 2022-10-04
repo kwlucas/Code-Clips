@@ -9,7 +9,13 @@ router.post('/', async (req, res) => {
                 password: req.body.password,
             });
             //session save
+            req.session.save(() => {
+              req.session.userId = userData.id;
+              req.session.username = userData.username;
+              req.session.loggedIn = true;
+           
             res.json(userData);
+          });
         } else {
             res.status(400).send({ message: 'Invalid user parameters!' });
         }
@@ -39,13 +45,13 @@ router.post('/login', async (req, res) => {
         return;
       }
   
-      // req.session.save(() => {
-      //   req.session.userId = user.id;
-      //   req.session.username = user.username;
-      //   req.session.loggedIn = true;
+      req.session.save(() => {
+        req.session.userId = user.id;
+        req.session.username = user.username;
+        req.session.loggedIn = true;
   
        
-      // });
+       });
       res.json({ user, message: 'You are now logged in!' });
     } catch (err) {
       console.error(err);
@@ -57,9 +63,15 @@ router.post('/login', async (req, res) => {
     if (req.session.loggedIn) {
       req.session.destroy(() => {
         res.status(204).end();
+        
       });
     } else {
       res.status(404).end();
+    }
+    req.session.save(() => {
+      req.session.userId = user.id;
+      req.session.username = user.username;
+      req.session.loggedIn = true;
     }
   });
 
