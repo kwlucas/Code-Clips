@@ -126,6 +126,16 @@ button:hover, .button:hover{
     background-color: var(--btn-hover-color);
 }
 
+.post {
+    width: 270px;
+    height: 235px;
+
+    border-radius: 12px;
+
+    background-color: var(--post-bg);
+    color: var(--post-text);
+}
+
 .row-container {
     display: flex;
     flex-direction: row;
