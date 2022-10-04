@@ -154,6 +154,10 @@ button:hover, .button:hover{
     background-color: var(--btn-hover-color);
 }
 
+.post-row {
+    margin-top: 1rem;
+}
+
 .row-container {
     position: relative;
     display: flex;
