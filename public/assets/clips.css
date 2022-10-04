@@ -136,6 +136,18 @@ button:hover, .button:hover{
     flex: 1 1 0;
 }
 
+.arrow-btn {
+    cursor: pointer;
+    transition: filter 0.2s ease;
+    border-radius: 12px;
+
+    background-color: var(--main-bg);
+}
+
+.arrow-btn:hover {
+    filter: brightness(125%);
+}
+
 .arrow-btn svg{
     fill: var(--arrow-btn);
 }
