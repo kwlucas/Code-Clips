@@ -19,11 +19,23 @@ html {
 }
 
 body {
-    background-color: var(--grey);
+    --main-bg: var(--grey);
+    --bookmark-false: var(--grey-2);
+    --bookmark-true: var(--dark-red);
+    --log-button: var(--white);
+    --arrow-buttons: var(--off-white);
+    --plus-button: var(--off-white);
+    --post-bg: var(--off-white);
+
+    --header-text: var(--white);
+    --post-text: var(--black);
+
+    background-color: var(--main-bg);
 }
 
 header a {
     text-decoration: none;
+    color: inherit;
 }
 
 .main-header {
@@ -31,6 +43,7 @@ header a {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    color: var();
 }
 
 .button {
