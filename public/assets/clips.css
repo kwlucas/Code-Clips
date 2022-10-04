@@ -6,6 +6,7 @@
     --light-grey: #a7a7a7;
     --grey: #424242;
     --grey-2: #6b6b6b;
+    --dark-grey: #2e2e2e;
 
     --dark-red: #aa4848;
 }
@@ -110,12 +111,25 @@ body {
     --post-text: var(--black);
 
     background-color: var(--main-bg);
+    color: var(--white);
     margin: 0;
 }
+
+pre, code {
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 12px;
+    padding:0.33rem;
+    background-color: var(--dark-grey);
+}
+
 
 header a {
     text-decoration: none;
     color: inherit;
+}
+
+.container{
+    margin: 1rem;
 }
 
 .main-header {
