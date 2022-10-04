@@ -158,6 +158,11 @@ button:hover, .button:hover{
     margin-top: 1rem;
 }
 
+.post-row h2{
+    color: var(--header-text);
+    margin-left: 2rem;
+}
+
 .row-container {
     position: relative;
     display: flex;
