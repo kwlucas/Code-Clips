@@ -120,11 +120,16 @@ h6 {
     padding: 0;
 }
 
+pre {
+    white-space: pre-wrap;
+}
+
 pre, code {
     font-family: 'Courier New', Courier, monospace;
     border-radius: 12px;
     padding:0.33rem;
     background-color: var(--dark-grey);
+    color: var(--off-white);
 }
 
 h1>a,
