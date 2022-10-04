@@ -18,6 +18,14 @@ header a {
 }
 
 .main-header {
-    display: inline-flex;
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+}
+
+.button {
+    padding: 1em;
+    background-color: white;
+    border-radius: 12px;
 }
