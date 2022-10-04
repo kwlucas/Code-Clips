@@ -20,6 +20,27 @@
     box-sizing: inherit;
 }
 
+body {
+    --main-bg: var(--grey);
+    --bookmark-false: var(--grey-2);
+    --bookmark-true: var(--dark-red);
+    --log-btn: var(--white);
+    --log-btn-text: var(--black);
+    --log-btn-hover: var(--off-white);
+    --arrow-btn: var(--light-grey);
+    --plus-btn: var(--azure);
+    --plus-btn-hover: var(--capri);
+    --plus-btn-text: var(--white);
+    --post-bg: var(--off-white);
+
+    --header-text: var(--white);
+    --post-text: var(--black);
+
+    background-color: var(--main-bg);
+    color: var(--white);
+    margin: 0;
+}
+
 html {
     font-family: 'Inter', 'Helvetica', 'Arial', 'Verdana', 'sans-serif';
     box-sizing: border-box;
@@ -97,27 +118,6 @@ h5,
 h6 {
     margin: 0;
     padding: 0;
-}
-
-body {
-    --main-bg: var(--grey);
-    --bookmark-false: var(--grey-2);
-    --bookmark-true: var(--dark-red);
-    --log-btn: var(--white);
-    --log-btn-text: var(--black);
-    --log-btn-hover: var(--off-white);
-    --arrow-btn: var(--light-grey);
-    --plus-btn: var(--azure);
-    --plus-btn-hover: var(--capri);
-    --plus-btn-text: var(--white);
-    --post-bg: var(--off-white);
-
-    --header-text: var(--white);
-    --post-text: var(--black);
-
-    background-color: var(--main-bg);
-    color: var(--white);
-    margin: 0;
 }
 
 pre, code {
