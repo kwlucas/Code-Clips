@@ -7,11 +7,20 @@
     --grey-2: #6b6b6b;
 
     --dark-red: #aa4848;
-
-    --inter: "Inter";
 }
 
 @import url("https://fonts.googleapis.com/css?family=Inter:700,500");
+
+html {
+    font-family: 'Inter', 'Helvetica', 'Arial', 'Verdana', 'sans-serif';
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+body {
+    background-color: var(--grey);
+}
 
 header a {
     text-decoration: none;
