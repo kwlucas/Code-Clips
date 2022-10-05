@@ -25,9 +25,9 @@ body {
     --main-bg: var(--grey);
     --bookmark-false: var(--grey-2);
     --bookmark-true: var(--dark-red);
-    --log-btn: var(--white);
+    --log-btn: var(--azure);
     --log-btn-text: var(--black);
-    --log-btn-hover: var(--off-white);
+    --log-btn-hover: var(--capri);
     --arrow-btn: var(--light-grey);
     --plus-btn: var(--azure);
     --plus-btn-hover: var(--capri);
@@ -243,6 +243,16 @@ button:hover,
     align-items: center;
 }
 
+.fill-row{
+    min-height: calc(235px + 1.5rem);
+    flex: 1 1 0;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .post {
     min-width: 270px;
     min-height: 235px;
@@ -386,7 +396,7 @@ dialog[open]>div:first-child {
     margin: 1.5rem;
 }
 
-#log-btn {
+.log-btn {
     --btn-color: var(--log-btn);
     --btn-hover-color: var(--log-btn-hover);
     --btn-click-color: var(--btn-hover-color);
