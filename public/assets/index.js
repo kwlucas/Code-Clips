@@ -1,4 +1,4 @@
-let addNewBtnEl =  document.querySelector('new-post-btn');
+let addNewBtnEl =  document.querySelector('#new-post-btn');
 let viewPostEl = document.querySelector('#view-post');
 
 
@@ -24,9 +24,14 @@ function toggleModal(event){
     }   
 }
 
+function openModal(selector){
+    const modal = document.querySelector(selector);
+    modal.addAttribute('open');
+}
+
 async function openPost(event) {
     const postId = event.target.getAttribute('post_id');
-    openModal('#view-post-modal');
+    openModal('#main-modal');
     addNewBtnEl.classList.add('modal-active');
     const { id, title, snippet, description, user_id } = await fetch(`api/posts/${postId}`, {
         method: 'GET',
