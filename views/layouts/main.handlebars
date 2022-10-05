@@ -2,28 +2,68 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
-  <link rel="stylesheet" type="text/css" href="/css/jass.css">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="./clips.css" />
 </head>
 
 <body>
-  <header>
-    <h1></h1>
-  </header>
-  <nav>
-    <a href="/"></a>
-  </nav>
-  <main>
-    <aside>
-      <h2></h2>
-    </aside>
-    <div class="gallery">
-      {{{body}}}
+  <header class="main-header">
+    <div>
+      <h1><a>Code Clips</a></h1>
     </div>
+    <div>
+      <a class="button no-border" id="log-btn">Log out</a>
+    </div>
+  </header>
+  <div class="button circle fixed btm-right no-border" id="new-post-btn" linked-modal="main-modal">+</div>
+  <main>
+    <section class="post-row">
+      <h2 class="row-header">Most Bookmarked</h2>
+      <div class="row-container">
+        <div class="arrow-btn">
+          <svg width="50" height="100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 50 l25 -37.5 c1 -1.5 3.5 -1 2.5 1 l-25 36.5 M10 50 l25 37.5 c1 1.5 3.5 1 2.5 -1 l-25 -36.5">
+            </path>
+          </svg>
+        </div>
+        <div class="scroll-box" id="most-bookmarked-posts">
+        </div>
+        <div class="arrow-btn right">
+          <svg width="50" height="100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 50 l25 -37.5 c1 -1.5 3.5 -1 2.5 1 l-25 36.5 M10 50 l25 37.5 c1 1.5 3.5 1 2.5 -1 l-25 -36.5">
+            </path>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="post-row">
+      <h2 class="row-header"><a href="/bookmarks/u/USERID">Your Bookmarks</a></h2>
+      <div class="row-container">
+        <div class="arrow-btn">
+          <svg width="50" height="100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 50 l25 -37.5 c1 -1.5 3.5 -1 2.5 1 l-25 36.5 M10 50 l25 37.5 c1 1.5 3.5 1 2.5 -1 l-25 -36.5">
+            </path>
+          </svg>
+        </div>
+        <div class="scroll-box" id="users-posts">
+        </div>
+        <div class="arrow-btn right">
+          <svg width="50" height="100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 50 l25 -37.5 c1 -1.5 3.5 -1 2.5 1 l-25 36.5 M10 50 l25 37.5 c1 1.5 3.5 1 2.5 -1 l-25 -36.5">
+            </path>
+          </svg>
+        </div>
+      </div>
+    </section>
   </main>
+  <dialog class="modal" id="main-modal">
+    {{{body}}}
+  </dialog>
+  <script src="./index.js"></script>
 </body>
 
 </html>
