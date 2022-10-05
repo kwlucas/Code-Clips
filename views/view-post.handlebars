@@ -54,15 +54,15 @@
 </main>
 <dialog open class="modal" id="main-modal">
     <div id="view-post">
-            <h4 id="post-view-title">{{postData.title}}</h4>
-            <h5 id="post-view-author"></h5>
+            <h4 id="post-view-title">{{post.title}}</h4>
+            <h5 id="post-view-author" author_id="{{post.user_id}}"></h5>
             <br>
-            <pre class="highlight-syntax" id="post-view-snippet">{{postData.snippet}}</pre>
+            <pre class="highlight-syntax" id="post-view-snippet">{{post.snippet}}</pre>
             <div>
                 <button id="snippet-copy-btn">Copy Code</button>
             </div>
             <br>
-            <p id="post-view-description">{{postData.description}}</p>
+            <p id="post-view-description">{{post.description}}</p>
         </div>
 </dialog>
 <script src="./scripts/viewPost.js"></script>

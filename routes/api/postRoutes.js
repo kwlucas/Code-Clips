@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
 //raw query to get all posts with a count of their bookmark count in order of bookmark count
 //SELECT post.*, COUNT(bookmark.id) AS bookmark_count FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id GROUP BY post.id ORDER BY COUNT(bookmark.id) DESC;
 
-router.get('/', async (req, res) => {
+/* router.get('/', async (req, res) => {
     try {
         let postData;
         if(req.query.sortBy == 'bookmarks'){
@@ -46,12 +46,13 @@ router.get('/', async (req, res) => {
     } catch (err) {
         res.status(400).json(err);
     }
-});
+}); */
 
 //get post with specified id
 router.get('/:id', async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id);
+        console.log(postData);
         if (!postData) {
             res.status(404).json({ message: 'No post with this id!' });
 
