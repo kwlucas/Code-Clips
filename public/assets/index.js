@@ -2,6 +2,10 @@ let addNewBtnEl = document.querySelector('#new-post-btn');
 let viewPostEl = document.querySelector('#view-post');
 
 
+function delay(seconds = 1) {
+    return new Promise(resolve => setTimeout(resolve, seconds * 1000));
+  }
+
 function toggleModal(event) {
     event.preventDefault();
     const trigger = event.target;
@@ -26,36 +30,36 @@ function toggleModal(event) {
     }
 }
 
-function openModal(selector) {
+async function openModal(selector, linkTo ='/') {
     const modal = document.querySelector(selector);
     modal.addAttribute('open');
+    await delay();
+    if(linkTo !== '/'){
+        document.location.replace(linkTo);
+    } else {
+        console.log('no redirect link provided!');
+        await delay(5);
+        document.location.replace(linkTo);
+    }
 }
 
-async function openPost(event) {
+function openPost(event) {
     const postId = event.target.getAttribute('post_id');
-    openModal('#main-modal');
     addNewBtnEl.classList.add('modal-active');
-    const { id, title, snippet, description, user_id } = await fetch(`api/posts/${postId}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        }
-    });
-    const { username } = await fetch(`api/users/${user_id}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        }
-    });
-    document.querySelector('#post-view-title').textContent = title;
-    document.querySelector('#post-view-author').textContent = username;
-    document.querySelector('#post-view-snippet').textContent = snippet;
-    document.querySelector('#post-view-description').textContent = description;
+    openModal('#main-modal', `/posts/${postId}`);
 }
 
-function refreshPosts() {
+function setUpPosts() {
     (document.querySelectorAll('.post[post_id]') || []).forEach(postEl => {//get all elements with "post" class and run for each
-        postEl.addEventListener('click', openPost)
+        const postId = postEl.getAttribute('post_id');
+        postEl.addEventListener('click', openPost);
+        if(postEl.classList.contains('saved')){
+            (document.querySelectorAll(`.post[post_id=${postId}]`) || []).forEach(savedPostEl => {//get all elements with "post" class and run for each
+                if(!savedPostEl.classList.contains('saved')){
+                    savedPostEl.classList.add('saved');
+                }
+            });
+        }
     });
 }
 
@@ -74,11 +78,15 @@ function scrollL(event) {
 
 document.addEventListener('DOMContentLoaded', () => {
     addNewBtnEl.addEventListener('click', toggleModal);
-    (document.querySelectorAll('.arrow-btn') || []).forEach(arrowEl => {//get all elements with "post" class and run for each
+    (document.querySelectorAll('.arrow-btn') || []).forEach(arrowEl => {//get all elements with "arrow-btn" class and run for each
         if (arrowEl.classList.contains('right')) {
             arrowEl.addEventListener('click', scrollR);
         } else {
             arrowEl.addEventListener('click', scrollL);
         }
+    });
+
+    (document.querySelectorAll('.bookmark-btn') || []).forEach(bookmarkEl => {//get all elements with "arrow-btn" class and run for each
+        bookmarkEl.addEventListener('click', toggleBookmark);
     });
 })
