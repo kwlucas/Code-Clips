@@ -206,8 +206,8 @@ button:hover,
     height: 3rem;
     border-radius: 50%;
     display: inline-block;
-    border-top: 3px solid var(--azure);
-    border-right: 3px solid transparent;
+    border-top: 4px solid var(--azure);
+    border-right: 4px solid transparent;
     box-sizing: border-box;
     animation: spin 1s linear infinite;
 }
@@ -413,6 +413,17 @@ dialog[open]>div:first-child {
     bottom: unset;
     background-color: var(--salmon);
     transition: all 0.5s ease;
+}
+
+#placeholder {
+    height: 75%;
+    background-color: var(--grey-2);
+    border-radius: 12px;
+    border: 2px solid var(--black);
+    padding: 0.33rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #view-post {
