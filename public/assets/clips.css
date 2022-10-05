@@ -262,6 +262,8 @@ button:hover, .button:hover{
     display: flex;
     flex-direction: row;
 
+    scroll-behavior: smooth;
+
     overflow-x:auto;
 }
 
@@ -309,7 +311,7 @@ button:hover, .button:hover{
 
 .fixed.btm-right {
     right: 1.5rem;
-    bottom: 1.5rem;
+    top: calc(100% - (1.5rem * 2.5));
 }
 
 .fixed.top-right {
@@ -323,7 +325,7 @@ button:hover, .button:hover{
     border-radius: 50%;
 }
 
-dialog[open] {
+dialog {
     width: 101%;
     height: 101%;
     position: fixed;
@@ -332,6 +334,13 @@ dialog[open] {
     z-index: 1;
     border: none;
     background-color: rgba(66,66,66,0.25);
+
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+dialog[open] {
+    opacity: 1;
 }
 
 dialog[open]>div:first-child{
@@ -363,6 +372,8 @@ dialog[open]>div:first-child{
     font-size: 2rem;
     font-weight: bold;
 
+    transition: all 0.5s ease;
+
 }
 
 #new-post-btn.modal-active {
@@ -371,6 +382,7 @@ dialog[open]>div:first-child{
     top: 1.5rem;
     bottom: unset;
     background-color: var(--salmon);
+    transition: all 0.5s ease;
 }
 
 #view-post{
