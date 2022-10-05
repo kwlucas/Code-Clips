@@ -1,0 +1,94 @@
+<main>
+    {{#if signedInUser}}
+    <div logged_in="{{signedInUser.id}}" class="hidden"></div>
+    {{/if}}
+    <section class="post-row">
+        <h2 class="row-header">Most Bookmarked</h2>
+        <div class="row-container">
+            <div class="arrow-btn">
+                <svg width="50" height="100" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10 50 l25 -37.5 c1 -1.5 3.5 -1 2.5 1 l-25 36.5 M10 50 l25 37.5 c1 1.5 3.5 1 2.5 -1 l-25 -36.5">
+                    </path>
+                </svg>
+            </div>
+            <div class="scroll-box" id="most-bookmarked-posts">
+                {{#each posts}}
+                <div class="post" post_id="{{id}}">
+                    <div class="bookmark-btn">
+                        <svg width="36" height="50" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0l36 0 l0 50 l-18 -12.5 l-18 12.5Z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="post-title">{{title}}</h3>
+                    <div class="post-content">
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            <div class="arrow-btn right">
+                <svg width="50" height="100" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10 50 l25 -37.5 c1 -1.5 3.5 -1 2.5 1 l-25 36.5 M10 50 l25 37.5 c1 1.5 3.5 1 2.5 -1 l-25 -36.5">
+                    </path>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <section class="post-row">
+        {{#if signedInUser}}
+        <h2 class="row-header"><a href="/bookmarks/u/{{signedInUser.id}}">Your Bookmarks</a></h2>
+        <div class="row-container">
+            <div class="arrow-btn">
+                <svg width="50" height="100" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10 50 l25 -37.5 c1 -1.5 3.5 -1 2.5 1 l-25 36.5 M10 50 l25 37.5 c1 1.5 3.5 1 2.5 -1 l-25 -36.5">
+                    </path>
+                </svg>
+            </div>
+            <div class="scroll-box" id="users-posts">
+                {{#each savedPosts}}
+                <div class="post" post_id="{{id}}">
+                    <div class="bookmark-btn saved">
+                        <svg width="36" height="50" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0l36 0 l0 50 l-18 -12.5 l-18 12.5Z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="post-title">{{title}}</h3>
+                    <div class="post-content">
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            {{else}}
+            <h2 class="row-header"><a href="/login">Your Bookmarks</a></h2>
+            <div class="row-container">
+                <div class="arrow-btn">
+                    <svg width="50" height="100" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10 50 l25 -37.5 c1 -1.5 3.5 -1 2.5 1 l-25 36.5 M10 50 l25 37.5 c1 1.5 3.5 1 2.5 -1 l-25 -36.5">
+                        </path>
+                    </svg>
+                </div>
+                <div class="scroll-box" id="users-posts">
+                    <div class="fill-row">
+                        <a class="button log-btn" href="/login">Sign In</a>
+                    </div>
+                </div>
+                {{/if}}
+                <div class="arrow-btn right">
+                    <svg width="50" height="100" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10 50 l25 -37.5 c1 -1.5 3.5 -1 2.5 1 l-25 36.5 M10 50 l25 37.5 c1 1.5 3.5 1 2.5 -1 l-25 -36.5">
+                        </path>
+                    </svg>
+                </div>
+            </div>
+    </section>
+</main>
+<dialog class="modal" id="main-modal">
+    <div id="placeholder">
+        <div class="loader"></div>
+    </div>
+</dialog>
