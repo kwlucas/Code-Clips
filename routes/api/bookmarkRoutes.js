@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const { Bookmark } = require('../../models');
-const withAuth = require('../../utils/auth');
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   //body needs to have "user_id" and "post_id"
   //user_id is from cookie/session data and is the id of who is logged in
   //post_id is from front end regarding which post the bookmark button was linked to
@@ -58,7 +57,7 @@ router.get('/u/:user_id', async (req, res) => {
 });
 
 //delete the bookmarks beloning to the specified user on the specified post
-router.delete('/', withAuth, async (req, res) => {
+router.delete('/', async (req, res) => {
   try {
     if (req.session.user_id && req.body.post_id) {
       const bookmarkData = await Bookmark.destroy({
@@ -82,13 +81,13 @@ router.delete('/', withAuth, async (req, res) => {
 });
 
 //Delete the bookmark with specified id
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     //Before public deployement this MUST have authentication attached to it. Users should only be able to remove their own bookmarks
     const bookmarkData = await Bookmark.destroy({
       where: { id: req.params.id }
     });
-    if (!bookmarkData) {
+    if (!bookmarkData || !req.session.user_id) {
       res.status(404).json({ message: 'No bookmark with this id!' });
 
     } else {

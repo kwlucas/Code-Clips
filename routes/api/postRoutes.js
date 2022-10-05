@@ -2,10 +2,9 @@ const router = require('express').Router();
 const { Sequelize } = require('sequelize');
 const sequelize = require('../../config/connection');
 const { Post } = require('../../models');
-const withAuth = require('../../utils/auth');
 
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         //Before public deployement this MUST have authentication attached to it. Users should only be able to add their own Posts
         if (req.session.user_id && req.body.title && req.body.snippet) {
