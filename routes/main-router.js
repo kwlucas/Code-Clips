@@ -7,8 +7,8 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
     console.log('home page request hit');
     try {
-        const posts = await sequelize.query('SELECT post.*, COUNT(bookmark.id) AS bookmark_count FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id GROUP BY post.id ORDER BY COUNT(bookmark.id) DESC');
-        console.log(posts);
+        const posts = await sequelize.query('SELECT post.*, COUNT(bookmark.id) AS bookmark_count FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id GROUP BY post.id ORDER BY COUNT(bookmark.id) DESC', {type: sequelize.QueryTypes.SELECT});
+        //console.log(posts);
         let signedInUser = ''
         if(req.session.loggedIn){
             signedInUser = await User.findOne({
@@ -45,6 +45,14 @@ router.get('/', async (req, res) => {
 router.get('/post/:id', async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id);
+        const post = {
+            "id": postData.id,
+            "title": postData.title,
+            "snippet": postData.snippet,
+            "description": postData.description,
+            "user_id": postData.user_id
+        }
+        console.log(post);
         let signedInUser = ''
         if(req.session.loggedIn){
             signedInUser = await User.findOne({
@@ -60,7 +68,7 @@ router.get('/post/:id', async (req, res) => {
 
         if (postData) {
             //Render post display page with the post data
-            res.render('view-post', { postData, signedInUser });
+            res.render('view-post', { post, signedInUser });
         } else {
             //FUTURE render 404 page
             console.log('view post 404');
