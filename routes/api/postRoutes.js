@@ -2,13 +2,14 @@ const router = require('express').Router();
 const { Sequelize } = require('sequelize');
 const sequelize = require('../../config/connection');
 const { Post } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
         //Before public deployement this MUST have authentication attached to it. Users should only be able to add their own Posts
-        if (req.body.user_id && req.body.title && req.body.snippet) {
-            const postData = await Post.create(req.body);
+        if (req.session.user_id && req.body.title && req.body.snippet) {
+            const postData = await Post.create(req.body, req.session.user_id);
             res.status(200).json(postData);
         } else {
             res.status(400).send({ message: 'Invalid post parameters!' });

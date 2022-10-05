@@ -8,8 +8,8 @@ router.post('/', withAuth, async (req, res) => {
   //post_id is from front end regarding which post the bookmark button was linked to
   try {
     //Before public deployement this MUST have authentication attached to it. Users should only be able to add their own bookmarks
-    if (req.session.userId && req.body.post_id) {
-      const bookmarkData = await Bookmark.create(req.session.userId, req.body);
+    if (req.session.user_id && req.body.post_id) {
+      const bookmarkData = await Bookmark.create(req.session.user_id, req.body);
       res.status(200).json(bookmarkData);
     } else {
       res.status(400).send({ message: 'Invalid bookmark parameters!' });
@@ -60,10 +60,10 @@ router.get('/u/:user_id', async (req, res) => {
 //delete the bookmarks beloning to the specified user on the specified post
 router.delete('/', withAuth, async (req, res) => {
   try {
-    if (req.session.userId && req.body.post_id) {
+    if (req.session.user_id && req.body.post_id) {
       const bookmarkData = await Bookmark.destroy({
         where: {
-          user_id: req.session.userId,
+          user_id: req.session.user_id,
           post_id: req.body.post_id
         },
       });
