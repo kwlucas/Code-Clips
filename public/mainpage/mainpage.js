@@ -24,3 +24,11 @@ function addNew(postTitle){
    addNew(post.title);
 }
 data.forEach(getPost(element));
+
+const saveNote = (post) => fetch (`api/notes`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+body:json.stringify()})
+   
