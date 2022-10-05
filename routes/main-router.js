@@ -41,7 +41,7 @@ router.get('/post/:id', async (req, res) => {
             //Render post display page with the post data
             res.render('view-post', { postData });
         } else {
-            //FEUTURE render 404 page
+            //FUTURE render 404 page
             res.status(404).end();
         }
 
