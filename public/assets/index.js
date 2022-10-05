@@ -63,6 +63,17 @@ function setUpPosts() {
     });
 }
 
+async function toggleBookmark(event) {
+    let postEl = event.target.parentElement.parentElement.parentElement;
+    console.log(postEl);
+    if(postEl.classList.contains('saved')){
+        postEl.classList.remove('saved');
+    }
+    else {
+        postEl.classList.add('saved');
+    }
+}
+
 function scrollR(event) {
     let scrollBoxEl = event.target.parentElement.previousElementSibling;
     console.log(scrollBoxEl);
