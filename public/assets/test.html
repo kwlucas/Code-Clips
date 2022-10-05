@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./clips.css" />
+</head>
+
+<body>
+    <header class="main-header">
+        <div>
+            <h1><a>Code Clips</a></h1>
+        </div>
+        <div>
+            <a class="button no-border" id="log-btn">Log out</a>
+        </div>
+    </header>
+    <!-- M5 50 l12.5 -37.5 c0.5 -1.5 3 -1 2.5 1 l-12.5 36.5 M5 50 l12.5 37.5 c0.5 1.5 3 0.5 2.5 -1 l-12.5 -36.5 -->
+    <!-- M5 50 l25 -37.5 c0.5 -1.5 3 -1 2.5 1 l-25 36.5 M5 50 l25 37.5 c0.5 1.5 3 0.5 2.5 -1 l-25 -36.5 -->
+
+    <!-- M5 50 l25 -37.5 c1 -1.5 3.5 -1 2.5 1 l-25 36.5 M5 50 l25 37.5 c1 1.5 3.5 1 2.5 -1 l-25 -36.5 -->
+    <!-- M5 100 l50 -75 c2 -3 7 -2 5 2 l-50 73 M5 100 l50 75 c2 3 7 2 5 -2 l-50 -73 -->
+
+    <!-- M5 100 l25 -75 c1 -3 6 -2 5 2 l-25 73 M5 100 l25 75 c1 3 6 2 5 -2 l-25 -73 -->
+    <!-- M5 100 l50 -75 c1 -3 6 -2 5 2 l-50 73 M5 100 l50 75 c1 3 6 2 5 -2 l-50 -73 -->
+
+    <!-- M0 0l36 0 l0 50 l-18 -12.5 l-18 12.5Z -->
+    <div class="button circle fixed btm-right no-border" id="new-post-btn" linked-modal="main-modal">+</div>
+    <main>
+        <section class="post-row">
+            <h2 class="row-header">Row 1</h2>
+            <div class="row-container">
+                <div class="arrow-btn">
+                    <svg width="50" height="100" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10 50 l25 -37.5 c1 -1.5 3.5 -1 2.5 1 l-25 36.5 M10 50 l25 37.5 c1 1.5 3.5 1 2.5 -1 l-25 -36.5">
+                        </path>
+                    </svg>
+                </div>
+                <div class="scroll-box">
+                    <div class="post">
+                        <div class="bookmark-btn">
+                            <svg width="36" height="50" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0l36 0 l0 50 l-18 -12.5 l-18 12.5Z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="post-title">Post Title</h3>
+                        <div class="post-content">
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="bookmark-btn">
+                            <svg width="36" height="50" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0l36 0 l0 50 l-18 -12.5 l-18 12.5Z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="post-title">Post Title</h3>
+                        <div class="post-content">
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="bookmark-btn saved">
+                            <svg width="36" height="50" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0l36 0 l0 50 l-18 -12.5 l-18 12.5Z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="post-title">Post Title</h3>
+                        <div class="post-content">
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="bookmark-btn">
+                            <svg width="36" height="50" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0l36 0 l0 50 l-18 -12.5 l-18 12.5Z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="post-title">Post Title</h3>
+                        <div class="post-content">
+                        </div>
+                    </div>
+                </div>
+                <div class="arrow-btn right">
+                    <svg width="50" height="100" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10 50 l25 -37.5 c1 -1.5 3.5 -1 2.5 1 l-25 36.5 M10 50 l25 37.5 c1 1.5 3.5 1 2.5 -1 l-25 -36.5">
+                        </path>
+                    </svg>
+                </div>
+            </div>
+        </section>
+        <section class="post-row">
+            <h2 class="row-header"><a href="/bookmarks/u/USERID">Your Bookmarks</a></h2>
+            <div class="row-container">
+                <div class="arrow-btn">
+                    <svg width="50" height="100" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10 50 l25 -37.5 c1 -1.5 3.5 -1 2.5 1 l-25 36.5 M10 50 l25 37.5 c1 1.5 3.5 1 2.5 -1 l-25 -36.5">
+                        </path>
+                    </svg>
+                </div>
+                <div class="scroll-box">
+                    <div class="post" post_id="1">
+                        <div class="bookmark-btn">
+                            <svg width="36" height="50" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0l36 0 l0 50 l-18 -12.5 l-18 12.5Z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="post-title">Post Title</h3>
+                        <div class="post-content">
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="bookmark-btn">
+                            <svg width="36" height="50" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0l36 0 l0 50 l-18 -12.5 l-18 12.5Z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="post-title">Post Title</h3>
+                        <div class="post-content">
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="bookmark-btn">
+                            <svg width="36" height="50" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0l36 0 l0 50 l-18 -12.5 l-18 12.5Z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="post-title">Post Title</h3>
+                        <div class="post-content">
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="bookmark-btn">
+                            <svg width="36" height="50" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0l36 0 l0 50 l-18 -12.5 l-18 12.5Z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="post-title">Post Title</h3>
+                        <div class="post-content">
+                        </div>
+                    </div>
+                </div>
+                <div class="arrow-btn right">
+                    <svg width="50" height="100" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10 50 l25 -37.5 c1 -1.5 3.5 -1 2.5 1 l-25 36.5 M10 50 l25 37.5 c1 1.5 3.5 1 2.5 -1 l-25 -36.5">
+                        </path>
+                    </svg>
+                </div>
+            </div>
+        </section>
+    </main>
+    <dialog class="modal" id="main-modal">
+        <div id="view-post">
+            <h4 id="post-view-title">Post Title</h4>
+            <h5 id="post-view-author">Author</h5>
+            <br>
+            <pre id="post-view-snippet">
+this {
+    is-the: code-snippet;
+}
+            </pre>
+            <div>
+                <button id="snippet-copy-btn">Copy Code</button>
+            </div>
+            <br>
+            <p id="post-view-description">This is where the description/caption goes!</p>
+        </div>
+    </dialog>
+    <script src="./index.js"></script>
+</body>
+
+</html>
