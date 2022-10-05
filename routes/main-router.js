@@ -13,11 +13,15 @@ router.get('/', async (req, res) => {
         });
         let signedInUser = await User.findOne({
             where: {
-              username: req.session.user_id,
+                id: req.session.user_id,
             },
+            attributes: {
+                //Fields which won't be included in response data
+                exclude: ['password']
+            }
         });
         let savedPosts = [];
-        if(signedInUser) {
+        if (signedInUser) {
             savedPosts = await fetch(`/api/bookmarks/u/${req.session.user_id}`, {
                 method: 'GET',
                 headers: {
@@ -45,6 +49,15 @@ router.get('/post/:id', async (req, res) => {
             res.status(404).end();
         }
 
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+//new post page
+router.get('/new', withAuth, async (req, res) => {
+    try {
+        res.render('new-post');
     } catch (err) {
         res.status(500).json(err);
     }
