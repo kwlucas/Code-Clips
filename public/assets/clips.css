@@ -130,6 +130,7 @@ pre, code {
     padding:0.33rem;
     background-color: var(--dark-grey);
     color: var(--off-white);
+    margin-bottom: 0.33rem;
 }
 
 h1>a,
@@ -361,4 +362,10 @@ dialog[open]>div:first-child{
     border-radius: 12px;
     border: 2px solid var(--black);
     padding: 0.33rem;
+}
+
+#view-post>pre+div>button{
+    --btn-color: var(--capri);
+    --btn-hover-color: var(--cyan);
+    --btn-click-color: var(--btn-hover-color);
 }
