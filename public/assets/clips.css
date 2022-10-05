@@ -278,11 +278,11 @@ button:hover,
     cursor: pointer;
 }
 
-.bookmark-btn.saved svg {
+.post.saved .bookmark-btn svg {
     fill: var(--bookmark-true);
 }
 
-.bookmark-btn:not(.saved) svg {
+.post:not(.saved) .bookmark-btn svg {
     fill: var(--bookmark-false);
 }
 

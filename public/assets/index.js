@@ -68,6 +68,7 @@ async function toggleBookmark(event) {
     console.log(postEl);
     if(postEl.classList.contains('saved')){
         postEl.classList.remove('saved');
+        await async
     }
     else {
         postEl.classList.add('saved');
