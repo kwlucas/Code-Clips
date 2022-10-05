@@ -5,7 +5,7 @@ const { User, Post, Bookmark } = require('../models');
 router.get('/', async (req, res) => {
     try {
         //render dashboard/homepage
-        res.render('');
+        res.render('homepage');
     } catch (err) {
         res.status(500).json(err);
     }
