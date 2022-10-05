@@ -1,11 +1,32 @@
 const router = require('express').Router();
 const { User, Post, Bookmark } = require('../models');
+const withAuth = require('../../utils/auth');
 
 //dashboard/home page
 router.get('/', async (req, res) => {
     try {
+        const posts = await fetch('/api/posts?sortBy=bookmarks', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        });
+        let signedInUser = await User.findOne({
+            where: {
+              username: req.session.user_id,
+            },
+        });
+        let savedPosts = [];
+        if(signedInUser) {
+            savedPosts = await fetch(`/api/bookmarks/u/${req.session.user_id}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
+        }
         //render dashboard/homepage
-        res.render('');
+        res.render('homepage', { posts, signedInUser, savedPosts });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -16,32 +37,12 @@ router.get('/post/:id', async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id);
 
-        if(postData){
+        if (postData) {
             //Render post display page with the post data
-            res.render('', { postData });
+            res.render('view-post', { postData });
         } else {
-            //render 404 page
-            res.render('');
-        }
-
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
-router.get('/bookmarks/u/:id', async (req, res) => {
-    try {
-        const bookmarkData = await Bookmark.findAll({
-            where: {
-              user_id: req.params.user_id
-            }
-          });
-        if(bookmarkData){
-            //Render display page of user's bookmarks
-            res.render('', { bookmarkData });
-        } else {
-            //render 404 page
-            res.render('');
+            //FEUTURE render 404 page
+            res.status(404).end();
         }
 
     } catch (err) {
@@ -55,7 +56,7 @@ router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');
         return;
-      }
+    }
 });
 
 //sign up page
@@ -64,7 +65,7 @@ router.get('/signup', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');
         return;
-      }
+    }
 });
 
 module.exports = router;
