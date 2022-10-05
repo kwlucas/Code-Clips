@@ -201,6 +201,10 @@ button:hover,
     background-color: var(--btn-hover-color);
 }
 
+.hidden {
+    display: none !important;
+}
+
 .loader {
     width: 3rem;
     height: 3rem;
