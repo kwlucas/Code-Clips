@@ -9,6 +9,7 @@
     --dark-grey: #2e2e2e;
 
     --dark-red: #aa4848;
+    --salmon: #FA8072;
     --cyan: #00FFFF;
     --capri: #00BFFF;
     --azure: #007FFF;
@@ -311,6 +312,11 @@ button:hover, .button:hover{
     bottom: 1.5rem;
 }
 
+.fixed.top-right {
+    right: 1.5rem;
+    top: 1.5rem;
+}
+
 .circle {
     width: 3rem;
     height: 3rem;
@@ -329,7 +335,8 @@ dialog[open] {
 }
 
 dialog[open]>div:first-child{
-    width: 75%;
+    left:1.5rem;
+    right: 1.5rem;
     min-height: 25%;
     position: absolute;
     z-index: 2;
@@ -355,6 +362,15 @@ dialog[open]>div:first-child{
 
     font-size: 2rem;
     font-weight: bold;
+
+}
+
+#new-post-btn.modal-active {
+    transform: rotate(315deg);
+    right: 1.5rem;
+    top: 1.5rem;
+    bottom: unset;
+    background-color: var(--salmon);
 }
 
 #view-post{
