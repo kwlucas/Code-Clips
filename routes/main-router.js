@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
                 'Content-Type': 'application/json',
             }
         });
-        let signedInUser = await User.findOne({
+        const signedInUser = await User.findOne({
             where: {
                 id: req.session.user_id,
             },
@@ -40,10 +40,19 @@ router.get('/', async (req, res) => {
 router.get('/post/:id', async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id);
+        const signedInUser = await User.findOne({
+            where: {
+                id: req.session.user_id,
+            },
+            attributes: {
+                //Fields which won't be included in response data
+                exclude: ['password']
+            }
+        });
 
         if (postData) {
             //Render post display page with the post data
-            res.render('view-post', { postData });
+            res.render('view-post', { postData, signedInUser });
         } else {
             //FUTURE render 404 page
             res.status(404).end();
