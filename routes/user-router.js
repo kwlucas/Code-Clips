@@ -10,9 +10,14 @@ router.get('/:id', async (req, res) => {
                 user_id: req.params.user_id
             }
         });
+        const userData = await User.findOne({
+            where: {
+              username: req.params.user_id,
+            },
+        });
         if (bookmarkData) {
             //Render display page of user's bookmarks
-            res.render('bookmarks', { layout: 'user', bookmarkData });
+            res.render('bookmarks', { layout: 'user', userData, bookmarkData });
         } else {
             //render 404 page
             res.status(404).end();
