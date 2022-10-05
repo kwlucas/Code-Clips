@@ -1,37 +1,42 @@
 const router = require('express').Router();
+const sequelize = require('../config/connection');
 const { User, Post, Bookmark } = require('../models');
-const withAuth = require('../../utils/auth');
+const withAuth = require('../utils/auth');
 
 //dashboard/home page
 router.get('/', async (req, res) => {
+    console.log('home page request hit');
     try {
-        const posts = await fetch('/api/posts?sortBy=bookmarks', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        });
-        const signedInUser = await User.findOne({
-            where: {
-                id: req.session.user_id,
-            },
-            attributes: {
-                //Fields which won't be included in response data
-                exclude: ['password']
-            }
-        });
+        const posts = await sequelize.query('SELECT post.*, COUNT(bookmark.id) AS bookmark_count FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id GROUP BY post.id ORDER BY COUNT(bookmark.id) DESC');
+        console.log(posts);
+        let signedInUser = ''
+        if(req.session.loggedIn){
+            signedInUser = await User.findOne({
+                where: {
+                    id: req.session.user_id,
+                },
+                attributes: {
+                    //Fields which won't be included in response data
+                    exclude: ['password']
+                }
+            });
+        }
         let savedPosts = [];
         if (signedInUser) {
-            savedPosts = await fetch(`/api/bookmarks/u/${req.session.user_id}`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
+            savedPosts = await Bookmark.findAll({
+                where: {
+                  user_id: req.session.user_id
+                },
+                attributes: {
+                  //Fields which won't be included in response data
+                  exclude: ['id', 'user_id']
                 }
             });
         }
         //render dashboard/homepage
-        res.render('homepage', { posts, signedInUser, savedPosts });
+        res.render('homepage', { posts, signedInUser, savedPosts }); //{ posts, signedInUser, savedPosts }
     } catch (err) {
+        console.error(err);
         res.status(500).json(err);
     }
 });
@@ -40,25 +45,30 @@ router.get('/', async (req, res) => {
 router.get('/post/:id', async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id);
-        const signedInUser = await User.findOne({
-            where: {
-                id: req.session.user_id,
-            },
-            attributes: {
-                //Fields which won't be included in response data
-                exclude: ['password']
-            }
-        });
+        let signedInUser = ''
+        if(req.session.loggedIn){
+            signedInUser = await User.findOne({
+                where: {
+                    id: req.session.user_id,
+                },
+                attributes: {
+                    //Fields which won't be included in response data
+                    exclude: ['password']
+                }
+            });
+        }
 
         if (postData) {
             //Render post display page with the post data
             res.render('view-post', { postData, signedInUser });
         } else {
             //FUTURE render 404 page
+            console.log('view post 404');
             res.status(404).end();
         }
 
     } catch (err) {
+        console.log(err);
         res.status(500).json(err);
     }
 });

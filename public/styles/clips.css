@@ -73,7 +73,7 @@ html {
         content: '';
         pointer-events: none;
         width: calc(100vw - ((var(--arrow-padding) + 50px)* 2));
-        height: 300px;
+        height: 280px;
         position: absolute;
         left: calc((var(--arrow-padding) + 50px));
         z-index: 1;

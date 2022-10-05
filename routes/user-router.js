@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Bookmark } = require('../models');
-const withAuth = require('../../utils/auth');
+const withAuth = require('../utils/auth');
 
 //FUTURE create profile page (for now it is only bookmark page)
 router.get('/:id', async (req, res) => {
