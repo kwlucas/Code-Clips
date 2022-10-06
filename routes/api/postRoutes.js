@@ -48,6 +48,11 @@ router.post('/', async (req, res) => {
     }
 }); */
 
+//consle raw query for posts bookmarked by a partictular user
+//SELECT post.id, post.user_id, post.title, bookmark.user_id AS saved_by_id FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id WHERE bookmark.user_id = 2 GROUP BY post.id;
+//raw query for sequelize
+//SELECT post.* FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id WHERE bookmark.user_id = ? GROUP BY post.id
+
 //get post with specified id
 router.get('/:id', async (req, res) => {
     try {

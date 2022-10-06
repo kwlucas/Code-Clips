@@ -11,6 +11,7 @@ router.get('/', async (req, res) => {
         //console.log(posts);
         let signedInUser = ''
         if(req.session.loggedIn){
+            console.log('user is signed in');
             signedInUser = await User.findOne({
                 where: {
                     id: req.session.user_id,
@@ -20,18 +21,19 @@ router.get('/', async (req, res) => {
                     exclude: ['password']
                 }
             });
+            signedInUser = {
+                "id": req.session.user_id,
+                "username": signedInUser.username
+            }
+            //console.log(signedInUser)
         }
         let savedPosts = [];
         if (signedInUser) {
-            savedPosts = await Bookmark.findAll({
-                where: {
-                  user_id: req.session.user_id
-                },
-                attributes: {
-                  //Fields which won't be included in response data
-                  exclude: ['id', 'user_id']
-                }
+            savedPosts = await sequelize.query('SELECT post.* FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id WHERE bookmark.user_id = ? GROUP BY post.id', {
+                replacements: [signedInUser.id],
+                type: sequelize.QueryTypes.SELECT
             });
+            //console.log(savedPosts);
         }
         //render dashboard/homepage
         res.render('homepage', { posts, signedInUser, savedPosts }); //{ posts, signedInUser, savedPosts }
