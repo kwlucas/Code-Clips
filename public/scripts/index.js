@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         triggerEl.addEventListener('click', toggleModal);
     });
     addNewBtnEl.addEventListener('click', function () { openModal('#main-modal', '/new')});
-    
+
     (document.querySelectorAll('.arrow-btn') || []).forEach(arrowEl => {//get all elements with "arrow-btn" class and run for each
         if (arrowEl.classList.contains('right')) {
             arrowEl.addEventListener('click', scrollR);
@@ -152,8 +152,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if(document.querySelectorAll('div[logged_in]').length > 0){
-        console.log('logged in detected');
-        console.log(document.querySelectorAll('div[logged_in]'));
+        //console.log('logged in detected');
+        //console.log(document.querySelectorAll('div[logged_in]'));
         (document.querySelectorAll('.log-btn') || []).forEach(logBtnEl => {//get all elements with "log-btn" class and run for each
             logBtnEl.textContent = 'Log Out'
             logBtnEl.addEventListener('click', async function () {
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     else {
-        console.log('logged in not detected');
+        //console.log('logged in not detected');
         (document.querySelectorAll('.log-btn') || []).forEach(logBtnEl => {//get all elements with "log-btn" class and run for each
             logBtnEl.textContent = 'Sign In'
             logBtnEl.addEventListener('click', async function () {
