@@ -3,6 +3,8 @@ const sequelize = require('../config/connection')//require connection file
 
 class Tag extends Model { }
 
+
+//FUTURE table for asigning categories to posts
 // create fields/columns for clips model
 Tag.init(
     {
