@@ -66,12 +66,13 @@ html.scroll-disabled {
     overflow-y: hidden;
 }
 
-/* mobile size */
+/* Mobile Size */
 html {
     font-size: 16px;
     --arrow-padding: 10px;
 }
 
+/* Tablet Size */
 @media only screen and (min-width: 768px) {
     html {
         font-size: 20px;
@@ -81,7 +82,7 @@ html {
     h1 {
         font-size: 3em;
     }
-
+    /* Set edge effects for the rows */
     .scroll-box::before {
         content: '';
         pointer-events: none;
@@ -92,7 +93,7 @@ html {
         z-index: 1;
         background: linear-gradient(90deg, var(--main-bg) 0%, rgba(66, 66, 66, 0) 15%, rgba(66, 66, 66, 0) 85%, var(--main-bg) 100%);
     }
-
+    /* arrow buttons no longer overlay on the posts at this size */
     .arrow-btn {
         position: relative !important;
         right: unset !important;
@@ -100,6 +101,7 @@ html {
     }
 }
 
+/* Laptop Size */
 @media only screen and (min-width: 1024px) {
     html {
         font-size: 24px;
@@ -115,7 +117,7 @@ html {
         background: linear-gradient(90deg, var(--main-bg) 0%, rgba(66, 66, 66, 0) 10%, rgba(66, 66, 66, 0) 90%, var(--main-bg) 100%);
     }
 }
-
+/* Desktop Size */
 @media only screen and (min-width: 1440px) {
     html {
         font-size: 30px;
@@ -166,6 +168,7 @@ code {
     color: var(--light-grey);
 }
 
+/* If links are nested in a heading remove text decorations and make its text color match parent's  */
 h1>a,
 h2>a,
 h3>a,
@@ -176,7 +179,7 @@ h6>a {
     color: inherit;
 }
 
-
+/* If links in the header remove text decorations and make its text color match parent's  */
 header a {
     text-decoration: none;
     color: inherit;
@@ -196,6 +199,7 @@ header a {
     margin: 0.5rem
 }
 
+/* Remove the border with class */
 .no-border {
     border: none !important;
 }
@@ -230,6 +234,7 @@ button:hover,
     width: 100%;
 }
 
+/* Make buttons within a button group scale automatically to fill group */
 .button-group button{
     flex: 1 1 0;
     height: 2rem;
@@ -252,6 +257,7 @@ button:hover,
     animation: spin 1s linear infinite;
 }
 
+/* Loading spinner animation */
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -279,6 +285,7 @@ button:hover,
     align-items: center;
 }
 
+/* Class to cause an object to match width of row  */
 .fill-row{
     min-height: calc(235px + 1.5rem);
     flex: 1 1 0;
@@ -314,6 +321,7 @@ button:hover,
     cursor: pointer;
 }
 
+/* Color the bookmark button paths based on if their parnet post element has the "saved" class or not */
 .post.saved .bookmark-btn svg {
     fill: var(--bookmark-true);
 }
@@ -322,16 +330,19 @@ button:hover,
     fill: var(--bookmark-false);
 }
 
+/* customize the scroll bar to give rounded edges */
 .scroll-box::-webkit-scrollbar-track {
     border-radius: 10px;
 }
 
+/* customize scroll bar so that there is no track */
 .scroll-box::-webkit-scrollbar {
     width: 10px;
     height: 10px;
     background-color: transparent;
 }
 
+/* customize the scroll bar position indicator  */
 .scroll-box::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background-color: #373737;
@@ -371,6 +382,7 @@ button:hover,
     padding-left: var(--arrow-padding);
 }
 
+/* Make the buttons brighter when hovered over */
 .arrow-btn:hover svg {
     filter: brightness(150%);
 }
@@ -409,6 +421,7 @@ button:hover,
     text-align: center;
 }
 
+/* Make dialog elements dim the entire screen */
 dialog {
     width: 101%;
     height: 101%;
@@ -427,6 +440,7 @@ dialog[open] {
     opacity: 1;
 }
 
+/* Center the first child of an open dialog element if it is a div */
 dialog[open]>div:first-child {
     left: 1.5rem;
     right: 1.5rem;
@@ -436,6 +450,7 @@ dialog[open]>div:first-child {
     margin: 1.5rem;
 }
 
+/* Color a button red */
 .btn-red{
     --btn-color: var(--salmon-2);
     --btn-hover-color: var(--salmon);
@@ -443,6 +458,7 @@ dialog[open]>div:first-child {
     color: var(--log-btn-text);
 }
 
+/* Color a button green  */
 .btn-green {
     --btn-color: var(--lightGreen);
     --btn-hover-color: var(--lightGreen-2);
@@ -457,6 +473,7 @@ dialog[open]>div:first-child {
     color: var(--log-btn-text);
 }
 
+/* Color and position the "add new" button (transition used for animation) */
 #test-modal-btn,
 #new-post-btn {
     --btn-color: var(--plus-btn);
@@ -495,6 +512,8 @@ dialog[open]>div:first-child {
     align-items: center;
     justify-content: center;
 }
+
+/* -------- Styling for individual page elements ----------- */
 
 #view-post {
     background-color: var(--grey-2);
