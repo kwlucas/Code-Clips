@@ -9,6 +9,7 @@ function delay(seconds = 1) {
     return new Promise(resolve => setTimeout(resolve, seconds * 1000));
 }
 
+//Run animation of closing the modal before going to the homepage
 async function closeModal() {
     addNewBtnEl.classList.remove('modal-active');
     modalEl.removeAttribute('open');
@@ -19,7 +20,7 @@ async function closeModal() {
 
 async function authenticate(event) {
     event.preventDefault();
-
+    //Verify user's credentials using the API
     const auth = await fetch('/api/users/login', {
         method: 'POST',
         body: JSON.stringify({
@@ -29,6 +30,7 @@ async function authenticate(event) {
         headers: { 'Content-Type': 'application/json' },
     });
 
+    //If the credentials were accepted close the modal/return to homepage
     if (auth.ok) {
         await closeModal();
     }
@@ -37,5 +39,6 @@ async function authenticate(event) {
 
 addNewBtnEl.addEventListener('click', closeModal);
 loginBtnEl.addEventListener('click', authenticate);
+//Swicth to Sign Up page if the sign up button is clicked
 signupBtnEl.addEventListener('click', function () { document.location.replace('/signup'); });
 document.documentElement.classList.add('scroll-disabled');
