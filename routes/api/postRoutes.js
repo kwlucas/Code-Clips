@@ -8,7 +8,14 @@ router.post('/', async (req, res) => {
     try {
         //Before public deployement this MUST have authentication attached to it. Users should only be able to add their own Posts
         if (req.session.user_id && req.body.title && req.body.snippet) {
-            const postData = await Post.create(req.body, req.session.user_id);
+            const newPost = {
+                title: req.body.title,
+                snippet: req.body.snippet,
+                description: req.body.description,
+                user_id: req.session.user_id
+            }
+            console.log(newPost);
+            const postData = await Post.create(newPost);
             res.status(200).json(postData);
         } else {
             res.status(400).send({ message: 'Invalid post parameters!' });
