@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="./clips.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/styles/clips.css" />
 </head>
 
 <body>
@@ -127,10 +127,33 @@
         </section>
     </main>
     <dialog class="modal" id="main-modal">
+        <div id="login">
+            <form>
+                <h2 class="center-text">Sign In</h2>
+                <!-- username field  -->
+                <div class="form-field" id="form-field-user">
+                    <input type="text" id="" placeholder="Username" required />
+                </div>
+                <!-- password field  -->
+                <div class="form-field" id="form-field-pwd">
+                    <input type="password" placeholder="Password" required />
+                </div>
+                <!-- button field for signup  -->
+                <div class="form-field button-group" id="form-field-btn">
+                    <button class="btn-green" id="createAccount" type="submit">
+                        Signup
+                    </button>
+                    <!-- button for login  -->
+                    <button class="log-btn" id="submit" type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+    <!-- <dialog class="modal" id="main-modal">
         <div id="placeholder">
             <div class="loader"></div>
         </div>
-    </dialog>
+    </dialog> -->
     <!-- <dialog class="modal" id="main-modal">
         <div id="view-post">
             <h4 id="post-view-title">Post Title</h4>
@@ -148,7 +171,7 @@ this {
             <p id="post-view-description">This is where the description/caption goes!</p>
         </div>
     </dialog> -->
-    <script src="./index.js"></script>
+    <script src="../../public/scripts/index.js"></script>
 </body>
 
 </html>
