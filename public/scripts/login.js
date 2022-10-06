@@ -1,7 +1,7 @@
 const usernameInputEl = document.querySelector("#username-input");
 const passwordInputEl = document.querySelector("#password-input");
 const loginBtnEl = document.querySelector("#login-btn");
-const signupBtnEl = document.querySelector("#signin-btn");
+const signupBtnEl = document.querySelector("#signup-btn");
 const addNewBtnEl = document.querySelector('#new-post-btn');
 const modalEl = document.querySelector('#main-modal');
 

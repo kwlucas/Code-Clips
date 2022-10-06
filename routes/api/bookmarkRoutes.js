@@ -11,12 +11,18 @@ router.post('/', async (req, res) => {
       res.status(401).send({ message: 'Unauthorized!' });
     }
     else if (req.session.user_id && req.body.post_id) {
-      const bookmarkData = await Bookmark.create(req.session.user_id, req.body);
+      //console.log('create bookmark');
+      const newBookmark = {
+        user_id: req.session.user_id,
+        post_id: req.body.post_id
+      };
+      const bookmarkData = await Bookmark.create(newBookmark);
       res.status(200).json(bookmarkData);
     } else {
       res.status(400).send({ message: 'Invalid bookmark parameters!' });
     }
   } catch (err) {
+    console.error(err);
     res.status(400).json(err);
   }
 });
