@@ -54,6 +54,18 @@
 </main>
 <dialog open class="modal" id="main-modal">
     <div id="new-post">
+        <h2>New Post</h2>
+        <form>
+            <input id="title-input" type="text" required placeholder="Enter Post Title"></input>
+            <h4>Snippet</h4>
+            <textarea id="snippet-input" class="code" rows="5" placeholder="Enter your code snippet here."></textarea>
+            <h4>Description</h4>
+            <textarea id="description-input" rows="3" placeholder="Enter your description here."></textarea>
+            <div class="button-group">
+                <button id="reset-btn" class="btn-red" type="reset">Clear</button>
+                <button id="submit-btn" class="btn-green" type="submit">Submit</button>
+            </div>
+        </form>
     </div>
 </dialog>
 <script src="./scripts/newPost.js"></script>
