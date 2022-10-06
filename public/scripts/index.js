@@ -32,7 +32,7 @@ function toggleModal(event) {
 
 async function openModal(selector, linkTo = '/') {
     const modal = document.querySelector(selector);
-    modal.addAttribute('open');
+    modal.setAttribute('open', '');
     await delay(3);
     if (linkTo !== '/') {
         document.location.replace(linkTo);
@@ -54,7 +54,7 @@ function setUpPosts() {
         const postId = postEl.getAttribute('post_id');
         postEl.addEventListener('click', openPost);
         if (postEl.classList.contains('saved')) {
-            (document.querySelectorAll(`.post[post_id=${postId}]`) || []).forEach(savedPostEl => {//get all elements with "post" class and run for each
+            (document.querySelectorAll(`[post_id=${postId}]`) || []).forEach(savedPostEl => {//get all elements with "post" class and run for each
                 if (!savedPostEl.classList.contains('saved')) {
                     savedPostEl.classList.add('saved');
                 }
@@ -74,17 +74,17 @@ async function toggleBookmark(event) {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                'post_id': postId
+                'post_id': Number(postId)
             }),
         });
         if(response.status == 401){
             await openModal('#main-modal', '/login');
         }
         else {
-            (document.querySelectorAll(`.post[post_id=${postId}]`) || []).forEach(savedPostEl => {//get all elements with the "post" class and "post_id" attribute equal to sepcified value and run for each
+            (document.querySelectorAll(`.post[post_id='${postId}']`) || []).forEach(savedPostEl => {//get all elements with the "post" class and "post_id" attribute equal to sepcified value and run for each
                 savedPostEl.classList.remove('saved');
             });
-            (document.querySelectorAll(`#users-posts .post[post_id=${postId}]`) || []).forEach(savedPostEl => {//get all elements with the "post" class and "post_id" attribute equal to sepcified value within users-post id element and run for each
+            (document.querySelectorAll(`#users-posts .post[post_id='${postId}']`) || []).forEach(savedPostEl => {//get all elements with the "post" class and "post_id" attribute equal to sepcified value within users-post id element and run for each
                 savedPostEl.remove();
             });
         }
@@ -96,14 +96,14 @@ async function toggleBookmark(event) {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                'post_id': postId
+                'post_id': Number(postId)
             }),
         });
         if(response.status == 401){
             await openModal('#main-modal', '/login');
         }
         else {
-            (document.querySelectorAll(`.post[post_id=${postId}]`) || []).forEach(savedPostEl => {//get all elements with the "post" class and "post_id" attribute equal to sepcified value and run for each
+            (document.querySelectorAll(`.post[post_id='${postId}']`) || []).forEach(savedPostEl => {//get all elements with the "post" class and "post_id" attribute equal to sepcified value and run for each
                 savedPostEl.classList.add('saved');
             });
             document.location.reload();
