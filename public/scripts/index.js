@@ -33,6 +33,9 @@ function toggleModal(event) {
 async function openModal(selector, linkTo = '/') {
     const modal = document.querySelector(selector);
     modal.setAttribute('open', '');
+    if (!addNewBtnEl.classList.contains('modal-active')) {
+        addNewBtnEl.classList.add('modal-active');
+    }
     await delay(1);
     if (linkTo !== '/') {
         document.location.replace(linkTo);
