@@ -10,6 +10,12 @@
 
     --dark-red: #aa4848;
     --salmon: #FA8072;
+    --yellowGreen: #9ACD32;
+    --limeGreen: #00FF00;
+    --lightGreen: #2da44e;
+    --lightGreen-2: #1ac149;
+    --shamrock: #009E60;
+    --green: #008000;
     --cyan: #00FFFF;
     --capri: #00BFFF;
     --azure: #007FFF;
@@ -201,6 +207,18 @@ button:hover,
     background-color: var(--btn-hover-color);
 }
 
+.button-group {
+    display: inline-flex;
+    width: 100%;
+}
+
+.button-group button{
+    flex: 1 1 0;
+    height: 2rem;
+    margin: 0.15rem;
+    font-size: 0.75rem;
+}
+
 .hidden {
     display: none !important;
 }
@@ -369,6 +387,10 @@ button:hover,
     border-radius: 50%;
 }
 
+.center-text{
+    text-align: center;
+}
+
 dialog {
     width: 101%;
     height: 101%;
@@ -394,6 +416,13 @@ dialog[open]>div:first-child {
     position: absolute;
     z-index: 2;
     margin: 1.5rem;
+}
+
+.btn-green {
+    --btn-color: var(--lightGreen);
+    --btn-hover-color: var(--lightGreen-2);
+    --btn-click-color: var(--btn-hover-color);
+    color: var(--log-btn-text);
 }
 
 .log-btn {
@@ -451,4 +480,35 @@ dialog[open]>div:first-child {
     --btn-color: var(--capri);
     --btn-hover-color: var(--cyan);
     --btn-click-color: var(--btn-hover-color);
+}
+
+#login {
+    height: 75%;
+    background-color: var(--grey-2);
+    border-radius: 12px;
+    border: 2px solid var(--black);
+    padding: 0.33rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login h2 {
+    color: var(--white);
+}
+
+#login>form {
+    padding: 0.33rem;
+    background-color: var(--grey);
+    border-radius: 12px;
+    border: 1px solid black;
+}
+
+#login>form input{
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+#login>form *:not(:last-child){
+    margin-bottom: 0.25rem;
 }
