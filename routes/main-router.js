@@ -1,12 +1,42 @@
 const router = require('express').Router();
+const sequelize = require('../config/connection');
 const { User, Post, Bookmark } = require('../models');
+const withAuth = require('../utils/auth');
 
 //dashboard/home page
 router.get('/', async (req, res) => {
+    console.log('home page request hit');
     try {
+        const posts = await sequelize.query('SELECT post.*, COUNT(bookmark.id) AS bookmark_count FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id GROUP BY post.id ORDER BY COUNT(bookmark.id) DESC', {type: sequelize.QueryTypes.SELECT});
+        //console.log(posts);
+        let signedInUser = ''
+        if(req.session.loggedIn){
+            signedInUser = await User.findOne({
+                where: {
+                    id: req.session.user_id,
+                },
+                attributes: {
+                    //Fields which won't be included in response data
+                    exclude: ['password']
+                }
+            });
+        }
+        let savedPosts = [];
+        if (signedInUser) {
+            savedPosts = await Bookmark.findAll({
+                where: {
+                  user_id: req.session.user_id
+                },
+                attributes: {
+                  //Fields which won't be included in response data
+                  exclude: ['id', 'user_id']
+                }
+            });
+        }
         //render dashboard/homepage
-        res.render('');
+        res.render('homepage', { posts, signedInUser, savedPosts }); //{ posts, signedInUser, savedPosts }
     } catch (err) {
+        console.error(err);
         res.status(500).json(err);
     }
 });
@@ -15,35 +45,46 @@ router.get('/', async (req, res) => {
 router.get('/post/:id', async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id);
+        const post = {
+            "id": postData.id,
+            "title": postData.title,
+            "snippet": postData.snippet,
+            "description": postData.description,
+            "user_id": postData.user_id
+        }
+        console.log(post);
+        let signedInUser = ''
+        if(req.session.loggedIn){
+            signedInUser = await User.findOne({
+                where: {
+                    id: req.session.user_id,
+                },
+                attributes: {
+                    //Fields which won't be included in response data
+                    exclude: ['password']
+                }
+            });
+        }
 
-        if(postData){
+        if (postData) {
             //Render post display page with the post data
-            res.render('', { postData });
+            res.render('view-post', { post, signedInUser });
         } else {
-            //render 404 page
-            res.render('');
+            //FUTURE render 404 page
+            console.log('view post 404');
+            res.status(404).end();
         }
 
     } catch (err) {
+        console.log(err);
         res.status(500).json(err);
     }
 });
 
-router.get('/bookmarks/u/:id', async (req, res) => {
+//new post page
+router.get('/new', withAuth, async (req, res) => {
     try {
-        const bookmarkData = await Bookmark.findAll({
-            where: {
-              user_id: req.params.user_id
-            }
-          });
-        if(bookmarkData){
-            //Render display page of user's bookmarks
-            res.render('', { bookmarkData });
-        } else {
-            //render 404 page
-            res.render('');
-        }
-
+        res.render('new-post');
     } catch (err) {
         res.status(500).json(err);
     }
@@ -55,7 +96,8 @@ router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');
         return;
-      }
+    }
+    res.render('login');
 });
 
 //sign up page
@@ -64,7 +106,8 @@ router.get('/signup', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');
         return;
-      }
+    }
+    res.render('sign-up');
 });
 
 module.exports = router;
