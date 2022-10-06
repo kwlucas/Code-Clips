@@ -12,6 +12,8 @@ Post.belongsTo (User, {
     foreignKey: 'user_id'
 });
 
+//Many to many between users and posts with junction table, bookmark
+
 User.belongsToMany(Post, {
     through: Bookmark,
     foreignKey: 'user_id'
