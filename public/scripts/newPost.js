@@ -8,7 +8,7 @@ const submitBtnEl = document.querySelector('#submit-btn');
 function delay(seconds = 1) {
     return new Promise(resolve => setTimeout(resolve, seconds * 1000));
 }
-
+//Run the close modal animation before returning to homepage
 async function closeModal() {
     addNewBtnEl.classList.remove('modal-active');
     modalEl.removeAttribute('open');
@@ -19,6 +19,7 @@ async function closeModal() {
 
 async function createPost(event) {
     event.preventDefault();
+    //Create the new post using API
     const response = await fetch('/api/posts', {
         method: 'POST',
         body: JSON.stringify({
@@ -29,11 +30,13 @@ async function createPost(event) {
         headers: { 'Content-Type': 'application/json' },
     });
 
+    //verify that the post was created and request was not rejected before closing the modal/returning to homepage
     if (response.ok) {
         await closeModal();
     }
 }
 
+//While typing in the snippetInput element make it so that the "tab" key will create an indent
 snippetInputEl.addEventListener('keydown', function(event) {
     if (event.key == 'Tab') {
       event.preventDefault();
