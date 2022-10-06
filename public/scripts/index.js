@@ -4,7 +4,7 @@ let viewPostEl = document.querySelector('#view-post');
 
 function delay(seconds = 1) {
     return new Promise(resolve => setTimeout(resolve, seconds * 1000));
-  }
+}
 
 function toggleModal(event) {
     event.preventDefault();
@@ -30,11 +30,11 @@ function toggleModal(event) {
     }
 }
 
-async function openModal(selector, linkTo ='/') {
+async function openModal(selector, linkTo = '/') {
     const modal = document.querySelector(selector);
     modal.addAttribute('open');
     await delay(3);
-    if(linkTo !== '/'){
+    if (linkTo !== '/') {
         document.location.replace(linkTo);
     } else {
         console.log('no redirect link provided!');
@@ -53,9 +53,9 @@ function setUpPosts() {
     (document.querySelectorAll('.post[post_id]') || []).forEach(postEl => {//get all elements with "post" class and run for each
         const postId = postEl.getAttribute('post_id');
         postEl.addEventListener('click', openPost);
-        if(postEl.classList.contains('saved')){
+        if (postEl.classList.contains('saved')) {
             (document.querySelectorAll(`.post[post_id=${postId}]`) || []).forEach(savedPostEl => {//get all elements with "post" class and run for each
-                if(!savedPostEl.classList.contains('saved')){
+                if (!savedPostEl.classList.contains('saved')) {
                     savedPostEl.classList.add('saved');
                 }
             });
@@ -65,13 +65,49 @@ function setUpPosts() {
 
 async function toggleBookmark(event) {
     let postEl = event.target.parentElement.parentElement.parentElement;
-    console.log(postEl);
-    if(postEl.classList.contains('saved')){
-        postEl.classList.remove('saved');
-        await async
+    let postId = postEl.getAttribute('post_id');
+    //console.log(postEl);
+    if (postEl.classList.contains('saved')) {
+        const response = await fetch('/api/bookmarks', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                'post_id': postId
+            }),
+        });
+        if(response.status == 401){
+            await openModal('#main-modal', '/login');
+        }
+        else {
+            (document.querySelectorAll(`.post[post_id=${postId}]`) || []).forEach(savedPostEl => {//get all elements with the "post" class and "post_id" attribute equal to sepcified value and run for each
+                savedPostEl.classList.remove('saved');
+            });
+            (document.querySelectorAll(`#users-posts .post[post_id=${postId}]`) || []).forEach(savedPostEl => {//get all elements with the "post" class and "post_id" attribute equal to sepcified value within users-post id element and run for each
+                savedPostEl.remove();
+            });
+        }
     }
     else {
-        postEl.classList.add('saved');
+        const response = await fetch('/api/bookmarks', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                'post_id': postId
+            }),
+        });
+        if(response.status == 401){
+            await openModal('#main-modal', '/login');
+        }
+        else {
+            (document.querySelectorAll(`.post[post_id=${postId}]`) || []).forEach(savedPostEl => {//get all elements with the "post" class and "post_id" attribute equal to sepcified value and run for each
+                savedPostEl.classList.add('saved');
+            });
+            document.location.reload();
+        }
     }
 }
 
