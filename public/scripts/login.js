@@ -2,8 +2,8 @@ const usernameInputEl = document.querySelector("#username-input");
 const passwordInputEl = document.querySelector("#password-input");
 const loginBtnEl = document.querySelector("#login-btn");
 const signupBtnEl = document.querySelector("#signin-btn");
-let addNewBtnEl = document.querySelector('#new-post-btn');
-let modalEl = document.querySelector('#main-modal');
+const addNewBtnEl = document.querySelector('#new-post-btn');
+const modalEl = document.querySelector('#main-modal');
 
 function delay(seconds = 1) {
     return new Promise(resolve => setTimeout(resolve, seconds * 1000));
@@ -13,6 +13,7 @@ async function closeModal() {
     addNewBtnEl.classList.remove('modal-active');
     modalEl.removeAttribute('open');
     await delay(3);
+    document.location.replace('/');
 }
 
 async function authenticate(event) {
@@ -29,10 +30,10 @@ async function authenticate(event) {
 
     if (auth.ok) {
         await closeModal();
-        document.location.replace('/');
     }
 
 }
 
-loginBtnEl.addEventListener("click", authenticate);
-signupBtnEl.addEventListener("click", function () { document.location.replace('/signup'); });
+addNewBtnEl.addEventListener('click', closeModal);
+loginBtnEl.addEventListener('click', authenticate);
+signupBtnEl.addEventListener('click', function () { document.location.replace('/signup'); });
