@@ -138,5 +138,30 @@ document.addEventListener('DOMContentLoaded', () => {
         bookmarkEl.addEventListener('click', toggleBookmark);
     });
 
+    if(document.querySelectorAll('div[logged_in]').length > 0){
+        console.log('logged in detected');
+        console.log(document.querySelectorAll('div[logged_in]'));
+        (document.querySelectorAll('.log-btn') || []).forEach(logBtnEl => {//get all elements with "log-btn" class and run for each
+            logBtnEl.textContent = 'Log Out'
+            logBtnEl.addEventListener('click', async function () {
+                await fetch('/api/users/logout', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                document.location.reload();
+            });
+        });
+    }
+    else {
+        console.log('logged in not detected');
+        (document.querySelectorAll('.log-btn') || []).forEach(logBtnEl => {//get all elements with "log-btn" class and run for each
+            logBtnEl.textContent = 'Sign In'
+            logBtnEl.addEventListener('click', async function () {
+                openModal('#main-modal', '/login');
+            });
+        });
+    }
     setUpPosts();
 })
