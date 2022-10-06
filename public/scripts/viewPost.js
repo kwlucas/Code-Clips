@@ -1,7 +1,15 @@
-// const hljs = require('highlight.js/lib/common');
+const addNewBtnEl = document.querySelector('#new-post-btn');
+const modalEl = document.querySelector('#main-modal');
 
-// document.addEventListener('DOMContentLoaded', () => {
-//     (document.querySelectorAll('.highlight-syntax') || []).forEach(element => {
-//         hljs.highlightElement(element);
-//     });
-// })
+function delay(seconds = 1) {
+    return new Promise(resolve => setTimeout(resolve, seconds * 1000));
+}
+
+async function closeModal() {
+    addNewBtnEl.classList.remove('modal-active');
+    modalEl.removeAttribute('open');
+    await delay(2);
+    document.location.replace('/');
+}
+
+addNewBtnEl.addEventListener('click', closeModal);
