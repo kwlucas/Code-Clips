@@ -33,7 +33,7 @@ function toggleModal(event) {
 async function openModal(selector, linkTo = '/') {
     const modal = document.querySelector(selector);
     modal.setAttribute('open', '');
-    await delay(3);
+    await delay(1);
     if (linkTo !== '/') {
         document.location.replace(linkTo);
     } else {
@@ -46,7 +46,7 @@ async function openModal(selector, linkTo = '/') {
 function openPost(event) {
     const postId = event.target.getAttribute('post_id');
     addNewBtnEl.classList.add('modal-active');
-    openModal('#main-modal', `/posts/${postId}`);
+    openModal('#main-modal', `/post/${postId}`);
 }
 
 function setUpPosts() {
@@ -137,4 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
     (document.querySelectorAll('.bookmark-btn') || []).forEach(bookmarkEl => {//get all elements with "arrow-btn" class and run for each
         bookmarkEl.addEventListener('click', toggleBookmark);
     });
+
+    setUpPosts();
 })
