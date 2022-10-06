@@ -55,7 +55,7 @@ function setUpPosts() {
         const postId = postEl.getAttribute('post_id');
         postEl.addEventListener('click', openPost);
         if (postEl.classList.contains('saved')) {
-            (document.querySelectorAll(`[post_id=${postId}]`) || []).forEach(savedPostEl => {//get all elements with "post" class and run for each
+            (document.querySelectorAll(`[post_id='${postId}']`) || []).forEach(savedPostEl => {//get all elements with "post" class and run for each
                 if (!savedPostEl.classList.contains('saved')) {
                     savedPostEl.classList.add('saved');
                 }
