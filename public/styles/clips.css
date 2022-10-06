@@ -59,6 +59,10 @@ html {
     --btn-click-color: var(--grey-2);
 }
 
+html.scroll-disabled {
+    overflow-y: hidden;
+}
+
 /* mobile size */
 html {
     font-size: 16px;
