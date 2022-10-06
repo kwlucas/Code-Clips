@@ -1,6 +1,7 @@
 /* variables  */
 :root {
     --black: rgba(0, 0, 0, 1);
+    --near-black: #2e2e2e;
     --white: rgba(255, 255, 255, 1);
     --off-white: rgba(217, 217, 217, 1);
     --light-grey: #a7a7a7;
@@ -9,7 +10,9 @@
     --dark-grey: #2e2e2e;
 
     --dark-red: #aa4848;
+    --red: #ff0000;
     --salmon: #FA8072;
+    --salmon-2: #fc5644;
     --yellowGreen: #9ACD32;
     --limeGreen: #00FF00;
     --lightGreen: #2da44e;
@@ -144,12 +147,22 @@ pre {
 
 pre,
 code {
-    font-family: 'Courier New', Courier, monospace;
     border-radius: 12px;
     padding: 0.33rem;
     background-color: var(--dark-grey);
     color: var(--off-white);
     margin-bottom: 0.33rem;
+}
+
+.code {
+    font-family: 'Courier New', Courier, monospace;
+    white-space: pre-wrap;
+    background-color: var(--near-black);
+    color: var(--off-white);
+}
+
+.code::placeholder {
+    color: var(--light-grey);
 }
 
 h1>a,
@@ -422,6 +435,13 @@ dialog[open]>div:first-child {
     margin: 1.5rem;
 }
 
+.btn-red{
+    --btn-color: var(--salmon-2);
+    --btn-hover-color: var(--salmon);
+    --btn-click-color: var(--btn-hover-color);
+    color: var(--log-btn-text);
+}
+
 .btn-green {
     --btn-color: var(--lightGreen);
     --btn-hover-color: var(--lightGreen-2);
@@ -484,6 +504,47 @@ dialog[open]>div:first-child {
     --btn-color: var(--capri);
     --btn-hover-color: var(--cyan);
     --btn-click-color: var(--btn-hover-color);
+}
+
+#new-post {
+    background-color: var(--grey-2);
+    border-radius: 12px;
+    border: 2px solid var(--black);
+    padding: 0.33rem;
+}
+
+#new-post form{
+    display: flex;
+    flex-direction: column;
+}
+
+#new-post form>input{
+    font-size: 1.33rem;
+    font-weight: bold;
+    color: var(--dark-grey);
+    background-color: inherit;
+    border: none;
+    outline: none !important;
+}
+
+#new-post form>input::placeholder{
+    color: var(--grey);
+}
+
+#new-post form>textarea {
+    border-radius: 12px;
+    padding: 0.33rem;
+    resize: vertical;
+    outline: none !important;
+}
+
+#description-input{
+    background-color: var(--grey);
+    color: var(--off-white);
+}
+
+#new-post>form *:not(:last-child){
+    margin-bottom: 0.25rem;
 }
 
 #login {
