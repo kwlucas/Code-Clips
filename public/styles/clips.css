@@ -143,6 +143,7 @@ h6 {
 
 pre {
     white-space: pre-wrap;
+    margin: 0.15rem;
 }
 
 pre,
@@ -151,7 +152,7 @@ code {
     padding: 0.33rem;
     background-color: var(--dark-grey);
     color: var(--off-white);
-    margin-bottom: 0.33rem;
+    /* margin-bottom: 0.33rem; */
 }
 
 .code {
@@ -456,6 +457,7 @@ dialog[open]>div:first-child {
     color: var(--log-btn-text);
 }
 
+#test-modal-btn,
 #new-post-btn {
     --btn-color: var(--plus-btn);
     --btn-hover-color: var(--plus-btn-hover);
@@ -473,6 +475,7 @@ dialog[open]>div:first-child {
 
 }
 
+#test-modal-btn.modal-active,
 #new-post-btn.modal-active {
     transform: rotate(315deg);
     right: 1.5rem;
@@ -500,10 +503,29 @@ dialog[open]>div:first-child {
     padding: 0.33rem;
 }
 
+#view-post>pre {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: none;
+    margin-bottom: 0!important;
+}
+
 #view-post>pre+div>button {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: none;
     --btn-color: var(--capri);
     --btn-hover-color: var(--cyan);
     --btn-click-color: var(--btn-hover-color);
+    margin-top: 0!important;
+}
+
+#view-post>p {
+    margin: 0.15rem;
+}
+
+#view-post *:not(:last-child){
+    margin-bottom: 0.25rem;
 }
 
 #new-post {
