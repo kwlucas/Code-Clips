@@ -33,7 +33,7 @@ function toggleModal(event) {
 async function openModal(selector, linkTo ='/') {
     const modal = document.querySelector(selector);
     modal.addAttribute('open');
-    await delay();
+    await delay(3);
     if(linkTo !== '/'){
         document.location.replace(linkTo);
     } else {
