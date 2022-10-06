@@ -1,0 +1,73 @@
+<div class="button circle fixed btm-right no-border modal-active" id="new-post-btn" linked-modal="main-modal">+</div>
+<main>
+    <section class="post-row">
+        <h2 class="row-header">Most Bookmarked</h2>
+        <div class="row-container">
+            <div class="arrow-btn">
+                <svg width="50" height="100" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10 50 l25 -37.5 c1 -1.5 3.5 -1 2.5 1 l-25 36.5 M10 50 l25 37.5 c1 1.5 3.5 1 2.5 -1 l-25 -36.5">
+                    </path>
+                </svg>
+            </div>
+            <div class="scroll-box" id="most-bookmarked-posts">
+                <div class="fill-row">
+                    <div class="loader"></div>
+                </div>
+            </div>
+            <div class="arrow-btn right">
+                <svg width="50" height="100" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10 50 l25 -37.5 c1 -1.5 3.5 -1 2.5 1 l-25 36.5 M10 50 l25 37.5 c1 1.5 3.5 1 2.5 -1 l-25 -36.5">
+                    </path>
+                </svg>
+            </div>
+        </div>
+    </section>
+    <section class="post-row">
+        <h2 class="row-header"><a>Your Bookmarks</a></h2>
+        <div class="row-container">
+            <div class="arrow-btn">
+                <svg width="50" height="100" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10 50 l25 -37.5 c1 -1.5 3.5 -1 2.5 1 l-25 36.5 M10 50 l25 37.5 c1 1.5 3.5 1 2.5 -1 l-25 -36.5">
+                    </path>
+                </svg>
+            </div>
+            <div class="scroll-box" id="users-posts">
+                <div class="fill-row">
+                    <div class="loader"></div>
+                </div>
+            </div>
+            <div class="arrow-btn right">
+                <svg width="50" height="100" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10 50 l25 -37.5 c1 -1.5 3.5 -1 2.5 1 l-25 36.5 M10 50 l25 37.5 c1 1.5 3.5 1 2.5 -1 l-25 -36.5">
+                    </path>
+                </svg>
+            </div>
+        </div>
+    </section>
+</main>
+<dialog open class="modal" id="main-modal">
+    <div id="login">
+        <form>
+            <h2 class="center-text">Sign Up</h2>
+            <!-- user field  -->
+            <div class="form-field" id="form-field-user">
+                <input type="text" id="username-input" placeholder="Email/Username" required />
+            </div>
+
+            <!-- password field  -->
+            <div class="form-field" id="form-field-pwd">
+                <input type="password" id="password-input" placeholder="Password" required />
+            </div>
+
+            <!-- button for signup  -->
+            <div class="form-field button-group" id="form-field-btn">
+                <button class="btn-green" id="signup-btn" type="submit">Signup</button>
+            </div>
+        </form>
+    </div>
+</dialog>
+<script src="./scripts/signup.js"></script>

@@ -6,9 +6,16 @@ const { Post } = require('../../models');
 
 router.post('/', async (req, res) => {
     try {
-        //Before public deployement this MUST have authentication attached to it. Users should only be able to add their own Posts
+        //Only users should be able to add posts
         if (req.session.user_id && req.body.title && req.body.snippet) {
-            const postData = await Post.create(req.body, req.session.user_id);
+            const newPost = {
+                title: req.body.title,
+                snippet: req.body.snippet,
+                description: req.body.description,
+                user_id: req.session.user_id
+            }
+            console.log(newPost);
+            const postData = await Post.create(newPost);
             res.status(200).json(postData);
         } else {
             res.status(400).send({ message: 'Invalid post parameters!' });
@@ -17,6 +24,8 @@ router.post('/', async (req, res) => {
         res.status(400).json(err);
     }
 });
+
+//RAW QUERIES
 
 //SELECT *  FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id;
 //For use in console to get post with bookmark count
@@ -28,6 +37,7 @@ router.post('/', async (req, res) => {
 //raw query to get all posts with a count of their bookmark count in order of bookmark count
 //SELECT post.*, COUNT(bookmark.id) AS bookmark_count FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id GROUP BY post.id ORDER BY COUNT(bookmark.id) DESC;
 
+//UNUSED ROUTE
 /* router.get('/', async (req, res) => {
     try {
         let postData;
@@ -47,6 +57,11 @@ router.post('/', async (req, res) => {
         res.status(400).json(err);
     }
 }); */
+
+//consle raw query for posts bookmarked by a partictular user
+//SELECT post.id, post.user_id, post.title, bookmark.user_id AS saved_by_id FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id WHERE bookmark.user_id = 2 GROUP BY post.id;
+//raw query for sequelize
+//SELECT post.* FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id WHERE bookmark.user_id = ? GROUP BY post.id
 
 //get post with specified id
 router.get('/:id', async (req, res) => {

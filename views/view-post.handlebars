@@ -54,15 +54,14 @@
 </main>
 <dialog open class="modal" id="main-modal">
     <div id="view-post">
-            <h4 id="post-view-title">{{post.title}}</h4>
+            <h2 id="post-view-title">{{post.title}}</h2>
             <h5 id="post-view-author" author_id="{{post.user_id}}"></h5>
-            <br>
             <pre class="highlight-syntax" id="post-view-snippet">{{post.snippet}}</pre>
-            <div>
+            <div class="button-group">
                 <button id="snippet-copy-btn">Copy Code</button>
             </div>
-            <br>
             <p id="post-view-description">{{post.description}}</p>
         </div>
 </dialog>
-<script src="./scripts/viewPost.js"></script>
+<script src="../scripts/bundle.js"></script>
+<script src="../scripts/viewPost.js"></script>

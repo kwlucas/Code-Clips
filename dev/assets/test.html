@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="./clips.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/styles/clips.css" />
 </head>
 
 <body>
@@ -28,7 +28,7 @@
     <!-- M5 100 l50 -75 c1 -3 6 -2 5 2 l-50 73 M5 100 l50 75 c1 3 6 2 5 -2 l-50 -73 -->
 
     <!-- M0 0l36 0 l0 50 l-18 -12.5 l-18 12.5Z -->
-    <div class="button circle fixed btm-right no-border" id="new-post-btn" linked-modal="main-modal">+</div>
+    <div class="button circle fixed btm-right no-border modal-trigger" id="test-modal-btn" linked-modal="main-modal">+</div>
     <main>
         <section class="post-row">
             <h2 class="row-header">Row 1</h2>
@@ -126,29 +126,83 @@
             </div>
         </section>
     </main>
-    <dialog class="modal" id="main-modal">
+    <!-- <dialog class="modal" id="main-modal">
+        <div id="new-post">
+            <h2>New Post</h2>
+            <form>
+                <input id="title-input" type="text" required placeholder="Enter Post Title"></input>
+                <h4>Snippet</h4>
+                <textarea id="snippet-input" class="code" rows="5" placeholder="Enter your code snippet here."></textarea>
+                <h4>Description</h4>
+                <textarea id="description-input" rows="3" placeholder="Enter your description here."></textarea>
+                <div class="button-group">
+                    <button id="reset-btn" class="btn-red" type="reset">Clear</button>
+                    <button id="submit-btn" class="btn-green" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </dialog> -->
+    <!-- <dialog class="modal" id="main-modal">
+        <div id="login">
+            <form>
+                <h2 class="center-text">Sign Up</h2>
+
+                <div class="form-field" id="form-field-user">
+                    <input type="text" id="username" placeholder="Email/Username" required />
+                </div>
+
+                <div class="form-field" id="form-field-pwd">
+                    <input type="password" placeholder="Password" required />
+                </div>
+
+                <div class="form-field button-group" id="form-field-btn">
+                    <button class="btn-green" id="createAccount" type="submit">Signup</button>
+                </div>
+            </form>
+        </div>
+    </dialog> -->
+    <!-- <dialog class="modal" id="main-modal">
+        <div id="login">
+            <form>
+                <h2 class="center-text">Sign In</h2>
+                <div class="form-field" id="form-field-user">
+                    <input type="text" id="" placeholder="Username" required />
+                </div>
+                
+                <div class="form-field" id="form-field-pwd">
+                    <input type="password" placeholder="Password" required />
+                </div>
+                <div class="form-field button-group" id="form-field-btn">
+                    <button class="btn-green" id="createAccount" type="submit">
+                        Sign Up
+                    </button>
+                    <button class="log-btn" id="submit" type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </dialog> -->
+    
+    <!-- <dialog class="modal" id="main-modal">
         <div id="placeholder">
             <div class="loader"></div>
         </div>
-    </dialog>
-    <!-- <dialog class="modal" id="main-modal">
+    </dialog> -->
+    <dialog class="modal" id="main-modal">
         <div id="view-post">
-            <h4 id="post-view-title">Post Title</h4>
-            <h5 id="post-view-author">Author</h5>
-            <br>
+            <h2 id="post-view-title">Post Title</h2>
+            <h5 id="post-view-author"></h5>
             <pre id="post-view-snippet">
 this {
     is-the: code-snippet;
 }
             </pre>
-            <div>
+            <div class="button-group">
                 <button id="snippet-copy-btn">Copy Code</button>
             </div>
-            <br>
             <p id="post-view-description">This is where the description/caption goes!</p>
         </div>
-    </dialog> -->
-    <script src="./index.js"></script>
+    </dialog>
+    <script src="../../public/scripts/index.js"></script>
 </body>
 
 </html>

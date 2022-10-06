@@ -1,5 +1,8 @@
 <div class="button circle fixed btm-right no-border modal-active" id="new-post-btn" linked-modal="main-modal">+</div>
 <main>
+    {{#if signedInUser}}
+    <div logged_in="{{signedInUser.id}}" class="hidden"></div>
+    {{/if}}
     <section class="post-row">
         <h2 class="row-header">Most Bookmarked</h2>
         <div class="row-container">
@@ -50,26 +53,19 @@
     </section>
 </main>
 <dialog open class="modal" id="main-modal">
-    <div id="login">
+    <div id="new-post">
+        <h2>New Post</h2>
         <form>
-            <h2 class="center-text">Sign In</h2>
-            <!-- username field  -->
-            <div class="form-field" id="form-field-user">
-                <input type="text" id="username-input" placeholder="Username" required />
-            </div>
-            <!-- password field  -->
-            <div class="form-field" id="form-field-pwd">
-                <input type="password" id='password-input' placeholder="Password" required />
-            </div>
-            <!-- button field for signup  -->
-            <div class="form-field button-group" id="form-field-btn">
-                <button class="btn-green" id="signup-btn" type="submit">
-                    Signup
-                </button>
-                <!-- button for login  -->
-                <button class="log-btn" id="login-btn" type="submit">Login</button>
+            <input id="title-input" type="text" required placeholder="Enter Post Title"></input>
+            <h4>Snippet</h4>
+            <textarea id="snippet-input" class="code" rows="5" required placeholder="Enter your code snippet here."></textarea>
+            <h4>Description</h4>
+            <textarea id="description-input" rows="3" placeholder="Enter your description here."></textarea>
+            <div class="button-group">
+                <button id="reset-btn" class="btn-red" type="reset">Clear</button>
+                <button id="submit-btn" class="btn-green" type="submit">Submit</button>
             </div>
         </form>
     </div>
 </dialog>
-<script src="./scripts/login.js"></script>
+<script src="./scripts/newPost.js"></script>
