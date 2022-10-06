@@ -6,7 +6,7 @@ const { Post } = require('../../models');
 
 router.post('/', async (req, res) => {
     try {
-        //Before public deployement this MUST have authentication attached to it. Users should only be able to add their own Posts
+        //Only users should be able to add posts
         if (req.session.user_id && req.body.title && req.body.snippet) {
             const newPost = {
                 title: req.body.title,
@@ -25,6 +25,8 @@ router.post('/', async (req, res) => {
     }
 });
 
+//RAW QUERIES
+
 //SELECT *  FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id;
 //For use in console to get post with bookmark count
 //SELECT post.id, post.user_id, post.title, COUNT(bookmark.id) AS bookmark_count FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id GROUP BY post.id;
@@ -35,6 +37,7 @@ router.post('/', async (req, res) => {
 //raw query to get all posts with a count of their bookmark count in order of bookmark count
 //SELECT post.*, COUNT(bookmark.id) AS bookmark_count FROM post LEFT OUTER JOIN bookmark ON post.id = bookmark.post_id GROUP BY post.id ORDER BY COUNT(bookmark.id) DESC;
 
+//UNUSED ROUTE
 /* router.get('/', async (req, res) => {
     try {
         let postData;

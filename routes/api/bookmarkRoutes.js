@@ -6,8 +6,8 @@ router.post('/', async (req, res) => {
   //user_id is from cookie/session data and is the id of who is logged in
   //post_id is from front end regarding which post the bookmark button was linked to
   try {
-    //Before public deployement this MUST have authentication attached to it. Users should only be able to add their own bookmarks
-    if(!req.session.loggedIn){
+    //Users should only be able to add their own bookmarks
+    if (!req.session.loggedIn) {
       res.status(401).send({ message: 'Unauthorized!' });
     }
     else if (req.session.user_id && req.body.post_id) {
@@ -68,7 +68,9 @@ router.get('/u/:user_id', async (req, res) => {
 //delete the bookmarks beloning to the specified user on the specified post
 router.delete('/', async (req, res) => {
   try {
-    if(!req.session.loggedIn){
+    //Users should only be able to remove their own bookmarks
+
+    if (!req.session.loggedIn) {
       res.status(401).send({ message: 'Unauthorized!' });
     }
     else if (req.session.user_id && req.body.post_id) {
@@ -95,7 +97,7 @@ router.delete('/', async (req, res) => {
 //Delete the bookmark with specified id
 router.delete('/:id', async (req, res) => {
   try {
-    //Before public deployement this MUST have authentication attached to it. Users should only be able to remove their own bookmarks
+    //Users should only be able to remove their own bookmarks
     const bookmarkData = await Bookmark.destroy({
       where: { id: req.params.id, user_id: req.session.user_id }
     });
