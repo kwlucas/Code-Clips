@@ -11,6 +11,7 @@ function toggleModal(event) {
     const trigger = event.target;
     if (trigger.classList.contains('modal-active')) {
         trigger.classList.toggle('modal-active');
+        document.documentElement.classList.toggle('scroll-disabled');
         (document.querySelectorAll('dialog[open]') || []).forEach(modal => {//get all open modals and run for each
             modal.removeAttribute('open');
         });
@@ -19,6 +20,7 @@ function toggleModal(event) {
 
     if (trigger.hasAttribute('linked-modal')) {
         trigger.classList.add('modal-active');
+        document.documentElement.classList.add('scroll-disabled');
         const linkedModal = trigger.getAttribute('linked-modal');
         document.querySelector(`#${linkedModal}`).toggleAttribute('open');
         return;
@@ -26,6 +28,7 @@ function toggleModal(event) {
 
     if (trigger.hasAttribute('open')) {
         trigger.toggleAttribute('open');
+        document.documentElement.classList.remove('scroll-disabled');
         return;
     }
 }
@@ -33,6 +36,7 @@ function toggleModal(event) {
 async function openModal(selector, linkTo = '/') {
     const modal = document.querySelector(selector);
     modal.setAttribute('open', '');
+    document.documentElement.classList.add('scroll-disabled');
     if (!addNewBtnEl.classList.contains('modal-active')) {
         addNewBtnEl.classList.add('modal-active');
     }

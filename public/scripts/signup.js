@@ -11,6 +11,7 @@ function delay(seconds = 1) {
 async function closeModal() {
     addNewBtnEl.classList.remove('modal-active');
     modalEl.removeAttribute('open');
+    document.documentElement.classList.remove('scroll-disabled');
     await delay(2);
     document.location.replace('/');
 }
@@ -35,3 +36,4 @@ async function createAccount(event) {
 
 addNewBtnEl.addEventListener('click', closeModal);
 signupBtnEl.addEventListener('click', createAccount);
+document.documentElement.classList.add('scroll-disabled');
