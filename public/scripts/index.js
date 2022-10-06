@@ -134,7 +134,11 @@ function scrollL(event) {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    addNewBtnEl.addEventListener('click', toggleModal);
+    (document.querySelectorAll('.modal-trigger') || []).forEach(triggerEl => {//get all elements with "modal-trigger" class and run for each
+        triggerEl.addEventListener('click', toggleModal);
+    });
+    addNewBtnEl.addEventListener('click', function () { openModal('#main-modal', '/new')});
+    
     (document.querySelectorAll('.arrow-btn') || []).forEach(arrowEl => {//get all elements with "arrow-btn" class and run for each
         if (arrowEl.classList.contains('right')) {
             arrowEl.addEventListener('click', scrollR);
