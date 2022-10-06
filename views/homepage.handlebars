@@ -50,13 +50,13 @@
             </div>
             <div class="scroll-box" id="users-posts">
                 {{#each savedPosts}}
-                <div class="post saved" post_id="{{id}}">
+                <div class="post saved" post_id="{{this.id}}">
                     <div class="bookmark-btn">
                         <svg width="36" height="50" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0 0l36 0 l0 50 l-18 -12.5 l-18 12.5Z"></path>
                         </svg>
                     </div>
-                    <h3 class="post-title">{{title}}</h3>
+                    <h3 class="post-title">{{this.title}}</h3>
                     <div class="post-content">
                     </div>
                 </div>
