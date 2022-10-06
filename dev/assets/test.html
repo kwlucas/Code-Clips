@@ -127,26 +127,40 @@
         </section>
     </main>
     <dialog class="modal" id="main-modal">
+        <div id="new-post">
+            <h2>New Post</h2>
+            <form>
+                <input id="title-input" type="text" required placeholder="Enter Post Title"></input>
+                <h4>Snippet</h4>
+                <textarea id="snippet-input" class="code" rows="5" placeholder="Enter your code snippet here."></textarea>
+                <h4>Description</h4>
+                <textarea id="description-input" rows="3" placeholder="Enter your description here."></textarea>
+                <div class="button-group">
+                    <button id="reset-btn" class="btn-red" type="reset">Clear</button>
+                    <button id="submit-btn" class="btn-green" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+    <!-- <dialog class="modal" id="main-modal">
         <div id="login">
             <form>
                 <h2 class="center-text">Sign Up</h2>
-                <!-- user field  -->
+
                 <div class="form-field" id="form-field-user">
                     <input type="text" id="username" placeholder="Email/Username" required />
                 </div>
-    
-                <!-- password field  -->
+
                 <div class="form-field" id="form-field-pwd">
                     <input type="password" placeholder="Password" required />
                 </div>
-    
-                <!-- button for signup  -->
+
                 <div class="form-field button-group" id="form-field-btn">
                     <button class="btn-green" id="createAccount" type="submit">Signup</button>
                 </div>
             </form>
         </div>
-    </dialog>
+    </dialog> -->
     <!-- <dialog class="modal" id="main-modal">
         <div id="login">
             <form>
