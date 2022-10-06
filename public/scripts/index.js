@@ -44,6 +44,7 @@ async function openModal(selector, linkTo = '/') {
 }
 
 function openPost(event) {
+    event.stopPropagation();
     const postId = event.target.getAttribute('post_id');
     addNewBtnEl.classList.add('modal-active');
     openModal('#main-modal', `/post/${postId}`);
@@ -64,6 +65,7 @@ function setUpPosts() {
 }
 
 async function toggleBookmark(event) {
+    event.stopPropagation();
     let postEl = event.target.parentElement.parentElement.parentElement;
     let postId = postEl.getAttribute('post_id');
     //console.log(postEl);
