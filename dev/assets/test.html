@@ -28,7 +28,7 @@
     <!-- M5 100 l50 -75 c1 -3 6 -2 5 2 l-50 73 M5 100 l50 75 c1 3 6 2 5 -2 l-50 -73 -->
 
     <!-- M0 0l36 0 l0 50 l-18 -12.5 l-18 12.5Z -->
-    <div class="button circle fixed btm-right no-border" id="new-post-btn" linked-modal="main-modal">+</div>
+    <div class="button circle fixed btm-right no-border modal-trigger" id="test-modal-btn" linked-modal="main-modal">+</div>
     <main>
         <section class="post-row">
             <h2 class="row-header">Row 1</h2>
@@ -126,7 +126,7 @@
             </div>
         </section>
     </main>
-    <dialog class="modal" id="main-modal">
+    <!-- <dialog class="modal" id="main-modal">
         <div id="new-post">
             <h2>New Post</h2>
             <form>
@@ -141,7 +141,7 @@
                 </div>
             </form>
         </div>
-    </dialog>
+    </dialog> -->
     <!-- <dialog class="modal" id="main-modal">
         <div id="login">
             <form>
@@ -187,23 +187,21 @@
             <div class="loader"></div>
         </div>
     </dialog> -->
-    <!-- <dialog class="modal" id="main-modal">
+    <dialog class="modal" id="main-modal">
         <div id="view-post">
-            <h4 id="post-view-title">Post Title</h4>
-            <h5 id="post-view-author">Author</h5>
-            <br>
+            <h2 id="post-view-title">Post Title</h2>
+            <h5 id="post-view-author"></h5>
             <pre id="post-view-snippet">
 this {
     is-the: code-snippet;
 }
             </pre>
-            <div>
+            <div class="button-group">
                 <button id="snippet-copy-btn">Copy Code</button>
             </div>
-            <br>
             <p id="post-view-description">This is where the description/caption goes!</p>
         </div>
-    </dialog> -->
+    </dialog>
     <script src="../../public/scripts/index.js"></script>
 </body>
 
