@@ -44,13 +44,14 @@ router.post('/login', async (req, res) => {
         res.status(400).json({ message: 'No user account found!' });
         return;
       }
-  
+      console.log('accepted user and password');
       req.session.save(() => {
         req.session.user_id = user.id;
         req.session.username = user.username;
         req.session.loggedIn = true;
+
+        res.json({ user, message: 'You are now logged in!' });
        });
-      res.json({ user, message: 'You are now logged in!' });
     } catch (err) {
       console.error(err);
       res.status(400).json({ message: 'No user account found!' });
