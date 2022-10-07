@@ -75,20 +75,21 @@
 }
 
 .button {
-  justify-content: flex-end;
-  display: flex;
-  height: 50px;
-  min-width: 50px;
-  margin-right: 20px;
+  background-color: #48abe0;
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
+    color: aliceblue;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0 2px 4px darkslategray;
+    transition: all 0.5s ease;
+    cursor: pointer;   
+    text-align: center;
+    text-decoration: none;
   
 }
 
-.overlap-group5 {
-  align-items: flex-start;
-  background-color: var(--alto);
-  border-radius: 80px;
-  display: flex;
-}
 
 .text-1 {
   height: 66px;
