@@ -2,6 +2,7 @@ const usernameInputEl = document.querySelector("#username-input");
 const passwordInputEl = document.querySelector("#password-input");
 const loginBtnEl = document.querySelector("#login-btn");
 const signupBtnEl = document.querySelector("#signup-btn");
+const formEl = document.querySelector('#login-form');
 const addNewBtnEl = document.querySelector('#new-post-btn');
 const modalEl = document.querySelector('#main-modal');
 
@@ -38,7 +39,7 @@ async function authenticate(event) {
 }
 
 addNewBtnEl.addEventListener('click', closeModal);
-loginBtnEl.addEventListener('click', authenticate);
+formEl.addEventListener('submit', authenticate);
 //Swicth to Sign Up page if the sign up button is clicked
 signupBtnEl.addEventListener('click', function () { document.location.replace('/signup'); });
 document.documentElement.classList.add('scroll-disabled');
