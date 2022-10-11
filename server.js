@@ -15,11 +15,12 @@ const PORT = process.env.PORT || 3001;
 //Session/Cookie maxAge
 //60000 is one minute
 //300000 is five minutes
+//900000 is fifteen minutes
 
 const sess = {
   secret: 'Test Secret',
   cookie: {
-    maxAge: 300000,
+    maxAge: 900000,
     httpOnly: true,
     secure: false,
     sameSite: 'strict',
