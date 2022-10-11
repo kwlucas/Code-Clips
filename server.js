@@ -12,6 +12,10 @@ const helpers = require('./utils/helpers');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+//Session/Cookie maxAge
+//60000 is one minute
+//300000 is five minutes
+
 const sess = {
   secret: 'Test Secret',
   cookie: {
