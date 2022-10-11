@@ -51,7 +51,7 @@
 </main>
 <dialog open class="modal" id="main-modal">
     <div id="login">
-        <form>
+        <form id="login-form">
             <h2 class="center-text">Sign In</h2>
             <!-- username field  -->
             <div class="form-field" id="form-field-user">
@@ -59,11 +59,11 @@
             </div>
             <!-- password field  -->
             <div class="form-field" id="form-field-pwd">
-                <input type="password" id='password-input' placeholder="Password" required />
+                <input type="password" id='password-input' placeholder="Password" title="Must be at least 10 characters long" minlength="10" required />
             </div>
             <!-- button field for signup  -->
             <div class="form-field button-group" id="form-field-btn">
-                <button class="btn-green" id="signup-btn" type="submit">
+                <button class="btn-green" id="signup-btn" type="reset">
                     Signup
                 </button>
                 <!-- button for login  -->

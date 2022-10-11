@@ -1,6 +1,7 @@
 const usernameInputEl = document.querySelector("#username-input");
 const passwordInputEl = document.querySelector("#password-input");
 const signupBtnEl = document.querySelector("#signup-btn");
+const formEl = document.querySelector('#signup-form');
 const addNewBtnEl = document.querySelector('#new-post-btn');
 const modalEl = document.querySelector('#main-modal');
 
@@ -37,6 +38,6 @@ async function createAccount(event) {
 }
 
 addNewBtnEl.addEventListener('click', closeModal);
-signupBtnEl.addEventListener('click', createAccount);
+formEl.addEventListener('submit', createAccount);
 //Disable scrolling
 document.documentElement.classList.add('scroll-disabled');
