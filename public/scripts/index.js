@@ -57,11 +57,11 @@ async function openModal(selector, linkTo = '/') {
     }
 }
 
-function openPost(event) {
+async function openPost(event) {
     //Make sure you do not hit overlapping clickable elements such as the bookmarks
     event.stopPropagation();
     //Get the "post_id" of the post from the element attribute
-    const postId = event.target.getAttribute('post_id');
+    const postId = await event.target.getAttribute('post_id');
     addNewBtnEl.classList.add('modal-active');
     //Use the post id to navigate to the proper route to view the post
     openModal('#main-modal', `/post/${postId}`);
